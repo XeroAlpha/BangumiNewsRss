@@ -1,0 +1,17 @@
+{
+  "name": "bangumi_news_rss",
+  "version": "1.0.0",
+  "description": "Collect posts from bangumi homepages and pack them into a RSS feed",
+  "main": ".",
+  "scripts": {
+    "generate": "node ./lib/index.js ./seasons/"
+  },
+  "author": "ProjectXero",
+  "license": "CC-BY-4.0",
+  "dependencies": {
+    "cheerio": "*",
+    "got": "^11.8.2",
+    "tough-cookie": "^4.0.0",
+    "tunnel": "^0.0.6"
+  }
+}
