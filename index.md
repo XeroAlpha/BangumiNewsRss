@@ -120,3 +120,8 @@ Scenario：http://rss.projectxero.top/scenarios/6/export.json
 - [记录的地平线 圆桌崩坏](https://www6.nhk.or.jp/anime/program/detail.html?i=loghorizon3)（不存在新闻页）
 - [金塔马尼犬](https://kintamani-dog.com/)（不存在新闻页）
 - [俗女纯爱大作战](https://jimihen.cf-anime.com/)（R18不收录）
+
+## 相关链接
+
+- [源代码](https://github.com/XeroAlpha/BangumiNewsRss)
+- [结构说明](http://rss.projectxero.top/bangumi/structure.html)

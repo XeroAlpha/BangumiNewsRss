@@ -8,7 +8,7 @@
 
 ## 项目原理
 
-本项目由在 Huginn 上的数个 Agent 组成。通过一定的配置可使这些 Agent 定时向番剧官网拉取新闻。
+本项目由在 Huginn 上的数个 Agent 组成。通过一定的配置可使这些 Agent 定时向番剧官网拉取新闻。详见 [结构说明](https://github.com/XeroAlpha/BangumiNewsRss/blob/main/structure.md) 。
 
 ## 仓库结构
 
