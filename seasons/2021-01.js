@@ -1,7 +1,7 @@
 module.exports = async function(host) {
     const { prepareSeason, addSource } = host;
 
-    return; // 待补完
+    // 待补完
 
     await prepareSeason({
         id: "202101",
@@ -15,7 +15,8 @@ module.exports = async function(host) {
             "link": "http://rss.projectxero.top",
             "copyright": "内容版权归原网站所有",
             "webMaster": "projectxero@163.com",
-        }
+        },
+        offline: true
     });
 
     await addSource({

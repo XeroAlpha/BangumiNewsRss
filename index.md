@@ -7,17 +7,30 @@ title: 番剧新闻聚合
 
 [TOC]
 
-上季（2021年春季）RSS：[http://rss.projectxero.top/bangumi/prev.xml](http://rss.projectxero.top/view/?src=bangumi%2Fprev.xml)
+上季（2021年冬季）RSS：[http://rss.projectxero.top/bangumi/prev.xml](http://rss.projectxero.top/view/?src=bangumi%2Fprev.xml)
 
-文档更新日期：`2021/04/27`
+本季（2021年春季）RSS：[http://rss.projectxero.top/bangumi/current.xml](http://rss.projectxero.top/view/?src=bangumi%2Fcurrent.xml)
+
+文档更新日期：`2021/04/28`
 
 站长联系方式：projectxero@163.com
 
 ## 已收集内容
 
+### 2021年春季（本季）
+
+状态：**每半小时检查一次**，正在收录来源
+
+RSS：[http://rss.projectxero.top/bangumi/2021-04.xml](http://rss.projectxero.top/view/?src=bangumi%2F2021-04.xml)
+
+Scenario：http://rss.projectxero.top/scenarios/18/export.json
+
+包含番剧：
+- [通灵王(第2作)](https://shamanking-project.com/news)
+
 ### 2020年秋季
 
-状态：**每半小时检查一次**，不再添加新的来源
+状态：**每天0:00检查一次**，不再添加新的来源
 
 RSS：[http://rss.projectxero.top/bangumi/2020-10.xml](http://rss.projectxero.top/view/?src=bangumi%2F2020-10.xml)
 
