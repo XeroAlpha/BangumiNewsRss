@@ -1,5 +1,5 @@
 module.exports = async function(host) {
-    const { prepareSeason, addSource } = host;
+    const { prepareSeason, addSource, wip, dryRun } = host;
 
     await prepareSeason({
         id: "202104",
@@ -27,6 +27,36 @@ module.exports = async function(host) {
         },
         description: {
             body: "main.news--detail__main"
+        }
+    });
+
+    await addSource({
+        name: "伊甸星原",
+        guidPrefix: "eden-zero",
+        url: "https://edens-zero.net/news/",
+        index: {
+            title: "ul.modNewsList__list li.item p.text",
+            date: "ul.modNewsList__list li.item time",
+            url: "ul.modNewsList__list li.item>a",
+            category: "ul.modNewsList__list li.item span.tag"
+        },
+        getExtractor: function(url) {
+            if (url.startsWith("#")) {
+                let id = url.slice(1);
+                return {
+                    url: "https://edens-zero.net/news/" + url,
+                    id: id,
+                    bodySelector: `div#${id} div.content`,
+                    bodyXPath: "./node()"
+                };
+            } else {
+                return {
+                    id: url
+                };
+            }
+        },
+        merge: {
+            title: "[{{category}}]{{title}}"
         }
     });
 }

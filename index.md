@@ -11,7 +11,9 @@ title: 番剧新闻聚合
 
 本季（2021年春季）RSS：[http://rss.projectxero.top/bangumi/current.xml](http://rss.projectxero.top/view/?src=bangumi%2Fcurrent.xml)
 
-文档更新日期：`2021/04/28`
+> 上方链接为隐式重定向链接，其指向的 RSS 源会随季度改变而改变。稳定的 RSS 源已列在下方。
+
+文档更新日期：`2021/04/29`
 
 站长联系方式：projectxero@163.com
 
@@ -27,6 +29,7 @@ Scenario：http://rss.projectxero.top/scenarios/18/export.json
 
 包含番剧：
 - [通灵王(第2作)](https://shamanking-project.com/news)
+- [伊甸星原](https://edens-zero.net/news/)
 
 ### 2020年秋季
 
