@@ -103,9 +103,6 @@ Agent.receive = function() {
     } else if (url.match(/^正则表达式/)) {
       bodySelector = "正文CSS选择器";
       bodyXPath = "./node()"
-    } else {
-      bodySelector = "body";
-      bodyXPath = "\"请在浏览器里打开\"";
     }
     return {
       ...e.payload,
@@ -141,8 +138,8 @@ Description Agent 为新闻正文解析端，是一个 Website Agent。这个部
   "mode": "merge",
   "extract": {
     "body": {
-      "css": "{{bodySelector}}",
-      "value": "{{bodyXPath}}"
+      "css": "{{bodySelector | default: \"body\"}}",
+      "value": "{{bodyXPath | default: '\"请在浏览器里打开\"'}}"
     }
   }
 }
@@ -183,9 +180,9 @@ Agent.receive = function() {
 }
 ```
 
-##　Rss
+## Rss
 Rss 为数据的收集端，是一个 Data Output Agent，用于收集所有 [Merge Agent](#Merge-Agent) 提供的事件并整合为一个 RSS 源。通常格式如下：
-```json
+```jsonc
 {
   "secrets": [
     "bangumi_news"
@@ -221,7 +218,7 @@ Rss 为数据的收集端，是一个 Data Output Agent，用于收集所有 [Me
       "false"
     ]
   ],
-  "events_to_show": 20 * 收录的来源数量,
+  "events_to_show": /* 20 * 收录的来源数量 */,
   "ns_media": "true",
   "ns_itunes": "true",
   "response_headers": {
