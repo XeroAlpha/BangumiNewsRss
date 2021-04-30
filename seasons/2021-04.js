@@ -1,5 +1,5 @@
 module.exports = async function(host) {
-    const { prepareSeason, addSource, wip, dryRun } = host;
+    const { prepareSeason, addSource, wip, dryRun, hideFromRss } = host;
 
     await prepareSeason({
         id: "202104",
@@ -58,5 +58,21 @@ module.exports = async function(host) {
         merge: {
             title: "[{{category}}]{{title}}"
         }
+    });
+
+    await addSource({
+        name: "我的英雄学院",
+        guidPrefix: "heroaca",
+        url: "https://heroaca.com/news/",
+        season: "201604",
+        index: {
+            title: "ul.newsLists li.cBorderWrap_w5 p.newsList__title",
+            date: "ul.newsLists li.cBorderWrap_w5 p.newsList__date>time",
+            url: ["ul.newsLists li.cBorderWrap_w5>a", "https://heroaca.com{{url}}"]
+        },
+        description: {
+            body: "div.newsDetail__text"
+        },
+        hideFromRss
     });
 }
