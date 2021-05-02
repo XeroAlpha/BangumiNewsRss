@@ -93,4 +93,20 @@ module.exports = async function(host) {
             body: "p#newsDetailText"
         }
     });
+
+    await addSource({
+        name: "水果篮子",
+        guidPrefix: "fruba",
+        url: "https://fruba.jp/news/",
+        season: "201904",
+        index: {
+            url: ["ul.news_archive__list li.news_archive__list__item>a", "https://fruba.jp/news/{{url}}"],
+            idTemplate: "{{url}}",
+            title: "ul.news_archive__list li.news_archive__list__item p.ttl",
+            date: "ul.news_archive__list li.news_archive__list__item p.date"
+        },
+        description: {
+            body: "div.c-single_cont"
+        }
+    });
 }
