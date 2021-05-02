@@ -30,6 +30,7 @@ Scenario：http://rss.projectxero.top/scenarios/18/export.json
 包含番剧：
 - [通灵王(第2作)](https://shamanking-project.com/news)
 - [伊甸星原](https://edens-zero.net/news/)
+- [王者天下3](https://kingdom-anime.com/news/)
 
 ### 2020年秋季
 

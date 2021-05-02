@@ -21,9 +21,10 @@ module.exports = async function(host) {
         guidPrefix: "shamanking",
         url: "https://shamanking-project.com/news",
         index: {
+            url: "div.md-newslist>ul li>a",
+            idTemplate: "{{url}}",
             title: "div.md-newslist>ul li h3",
             date: "div.md-newslist>ul li em.date",
-            url: "div.md-newslist>ul li>a"
         },
         description: {
             body: "main.news--detail__main"
@@ -68,11 +69,28 @@ module.exports = async function(host) {
         index: {
             title: "ul.newsLists li.cBorderWrap_w5 p.newsList__title",
             date: "ul.newsLists li.cBorderWrap_w5 p.newsList__date>time",
-            url: ["ul.newsLists li.cBorderWrap_w5>a", "https://heroaca.com{{url}}"]
+            url: ["ul.newsLists li.cBorderWrap_w5>a", "https://heroaca.com{{url}}"],
+            idTemplate: "{{url}}"
         },
         description: {
             body: "div.newsDetail__text"
         },
         hideFromRss
+    });
+
+    await addSource({
+        name: "王者天下3",
+        guidPrefix: "kingdom",
+        url: "https://kingdom-anime.com/news/",
+        season: "202004",
+        index: {
+            url: ["ul#news_list li>a", "https://kingdom-anime.com/news/{{url}}"],
+            idTemplate: "{{url}}",
+            title: "ul#news_list li p.newsTitle",
+            date: "ul#news_list li p.newsDate"
+        },
+        description: {
+            body: "p#newsDetailText"
+        }
     });
 }
