@@ -32,6 +32,7 @@ Scenario：http://rss.projectxero.top/scenarios/18/export.json
 - [伊甸星原](https://edens-zero.net/news/)
 - [王者天下3](https://kingdom-anime.com/news/)
 - [水果篮子](https://fruba.jp/news/)
+- [哥斯拉 奇异点](https://godzilla-sp.jp/news/)
 
 ### 2020年秋季
 

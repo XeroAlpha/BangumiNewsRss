@@ -109,4 +109,20 @@ module.exports = async function(host) {
             body: "div.c-single_cont"
         }
     });
+
+    await addSource({
+        name: "哥斯拉 奇异点",
+        guidPrefix: "godzillasp",
+        url: "https://godzilla-sp.jp/news/",
+        season: "201904",
+        index: {
+            url: ["ul.subNews__lists li.subNews__list a.subNews__list__link", "https://godzilla-sp.jp/news/{{url}}"],
+            idTemplate: "{{url}}",
+            title: "ul.subNews__lists li.subNews__list span.subNews__list__link--title",
+            date: "ul.subNews__lists li.subNews__list span.subNews__list__link--date>time"
+        },
+        description: {
+            body: "div.subNews__detal__textArea"
+        }
+    });
 }
