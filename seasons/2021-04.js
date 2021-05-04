@@ -155,4 +155,26 @@ module.exports = async function(host) {
             body: "div.article__main"
         }
     });
+
+    await addSource({
+        name: "SSSS.GRIDMAN", // SSSS系列通用
+        season: "201810",
+        guidPrefix: "gridman",
+        url: "https://gridman.net/news/",
+        index: {
+            url: ["section.c-entry-list article.c-entry-item a.c-entry-item__link", "https://gridman.net{{url}}"],
+            idTemplate: "{{url}}",
+            title: "section.c-entry-list article.c-entry-item h1.c-entry-item__title",
+            date: "section.c-entry-list article.c-entry-item span.c-entry-date",
+            tag: "section.c-entry-list article.c-entry-item span.c-entry-tag",
+            category: "section.c-entry-list article.c-entry-item span.c-entry-category"
+        },
+        description: {
+            body: "div.c-entry-body"
+        },
+        merge: {
+            title: "[{{category}}]{{title}}",
+            category: "SSSS.{{tag}}"
+        }
+    });
 }
