@@ -36,6 +36,7 @@ Scenario：http://rss.projectxero.top/scenarios/18/export.json
 - [大运动会 ReSTART!](https://daiundoukai-restart.jp/news.php)
 - [佐贺偶像是传奇 Revenge](https://zombielandsaga.com/news/)
 - [SSSS.DYNAZENON](https://gridman.net/news/)（系列共用源）
+- [86 -不存在的战区-](https://anime-86.com/news/)
 
 ### 2020年秋季
 

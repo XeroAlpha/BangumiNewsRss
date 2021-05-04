@@ -177,4 +177,19 @@ module.exports = async function(host) {
             category: "SSSS.{{tag}}"
         }
     });
+
+    await addSource({
+        name: "86 -不存在的战区-",
+        guidPrefix: "anime-86",
+        url: "https://anime-86.com/news/",
+        index: {
+            url: ["ul.c-list li.c-list__item a", "{{ url | to_uri: 'https://anime-86.com/news/' }}"],
+            idTemplate: "{{url}}",
+            title: "ul.c-list li.c-list__item div.c-list__item-title",
+            date: "ul.c-list li.c-list__item div.c-list__item-date>p"
+        },
+        description: {
+            body: "div.p-news__detail"
+        }, wip
+    });
 }
