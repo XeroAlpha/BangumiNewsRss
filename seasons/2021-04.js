@@ -140,4 +140,19 @@ module.exports = async function(host) {
             body: "div.text-farame"
         }
     });
+
+    await addSource({
+        name: "佐贺偶像是传奇 Revenge",
+        guidPrefix: "zombielandsaga_revenge",
+        url: "https://zombielandsaga.com/news/",
+        index: {
+            url: ["ul.article__lists li.article__list a.article__list--link", "https://zombielandsaga.com/news/{{url}}"],
+            idTemplate: "{{url}}",
+            title: "ul.article__lists li.article__list p.article__list--title",
+            date: "ul.article__lists li.article__list time.article__list--time"
+        },
+        description: {
+            body: "div.article__main"
+        }
+    });
 }
