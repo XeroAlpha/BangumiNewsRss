@@ -190,6 +190,21 @@ module.exports = async function(host) {
         },
         description: {
             body: "div.p-news__detail"
-        }, wip
+        }
+    });
+
+    await addSource({
+        name: "美少年侦探团",
+        guidPrefix: "bishonen_tanteidan",
+        url: "https://bishonen-tanteidan.com/news/",
+        index: {
+            url: ["ul.c-newsList li.c-newsList__item a.c-newsList__link", "https://bishonen-tanteidan.com/news/{{url}}"],
+            id: "ul.c-newsList li.c-newsList__item",
+            title: "ul.c-newsList li.c-newsList__item p.c-newsList__head",
+            date: "ul.c-newsList li.c-newsList__item p.c-newsList__date"
+        },
+        description: {
+            body: "div.c-article__body"
+        }
     });
 }
