@@ -36,10 +36,10 @@ module.exports = async function(host) {
         guidPrefix: "eden-zero",
         url: "https://edens-zero.net/news/",
         index: {
-            title: "ul.modNewsList__list li.item p.text",
-            date: "ul.modNewsList__list li.item time",
-            url: "ul.modNewsList__list li.item>a",
-            category: "ul.modNewsList__list li.item span.tag"
+            title: "ul.modNewsList__list.all_case li.item p.text",
+            date: "ul.modNewsList__list.all_case li.item time",
+            url: "ul.modNewsList__list.all_case li.item>a",
+            category: "ul.modNewsList__list.all_case li.item span.tag"
         },
         getExtractor: function(url) {
             if (url.startsWith("#")) {
