@@ -47,8 +47,7 @@ module.exports = async function(host) {
                 return {
                     url: "https://edens-zero.net/news/" + url,
                     id: id,
-                    bodySelector: `div#${id} div.content`,
-                    bodyXPath: "./node()"
+                    bodySelector: `div#${id} div.content`
                 };
             } else {
                 return {
@@ -205,6 +204,34 @@ module.exports = async function(host) {
         },
         description: {
             body: "div.c-article__body"
+        }
+    });
+
+    await addSource({
+        name: "Tropical-Rouge!光之美少女",
+        guidPrefix: "precure",
+        url: "https://www.toei-anim.co.jp/tv/precure/news/",
+        index: {
+            url: "ul.m-list-topics li .topics-link",
+            title: "ul.m-list-topics li .topics-link>dl>dd",
+            dateAndCategory: "ul.m-list-topics li .topics-link>dl>dt",
+            category: "ul.m-list-topics li .topics-link>dl>dt>span.link-cat"
+        },
+        getExtractor: function(url, payload) {
+            let result = { id: url };
+            result.date = payload.dateAndCategory.replace(payload.category, "");
+            if (url.startsWith("/tv/precure/news/")) {
+                result.url = "https://www.toei-anim.co.jp" + url;
+                result.bodySelector = "div.m-box-entry";
+            } else if (url.startsWith("http")) {
+                result.url = url;
+            } else if (url != "") {
+                result.url = "https://www.toei-anim.co.jp" + url;
+            } else {
+                result.id = payload.title;
+                result.url = "https://www.toei-anim.co.jp/tv/precure/news/#" + encodeURIComponent(payload.title);
+            }
+            return result;
         }
     });
 }

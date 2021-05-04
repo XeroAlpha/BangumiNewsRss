@@ -38,6 +38,7 @@ Scenario：http://rss.projectxero.top/scenarios/18/export.json
 - [SSSS.DYNAZENON](https://gridman.net/news/)（系列共用源）
 - [86 -不存在的战区-](https://anime-86.com/news/)
 - [美少年侦探团](https://bishonen-tanteidan.com/news/)
+- [Tropical-Rouge!光之美少女](https://www.toei-anim.co.jp/tv/precure/news/)
 
 ### 2020年秋季
 
