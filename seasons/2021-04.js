@@ -125,4 +125,19 @@ module.exports = async function(host) {
             body: "div.subNews__detal__textArea"
         }
     });
+
+    await addSource({
+        name: "大运动会 ReSTART!",
+        guidPrefix: "daiundoukai",
+        url: "https://daiundoukai-restart.jp/news.php",
+        index: {
+            url: ["div.text-farame table.news-list>tr>td>a", "https://daiundoukai-restart.jp/{{url}}"],
+            idTemplate: "{{url}}",
+            title: "div.text-farame table.news-list>tr>td>a",
+            date: "div.text-farame table.news-list>tr>th"
+        },
+        description: {
+            body: "div.text-farame"
+        }
+    });
 }

@@ -33,6 +33,7 @@ Scenario：http://rss.projectxero.top/scenarios/18/export.json
 - [王者天下3](https://kingdom-anime.com/news/)
 - [水果篮子](https://fruba.jp/news/)
 - [哥斯拉 奇异点](https://godzilla-sp.jp/news/)
+- [大运动会 ReSTART!](https://daiundoukai-restart.jp/news.php)
 
 ### 2020年秋季
 
