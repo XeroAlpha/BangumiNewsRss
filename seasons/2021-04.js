@@ -273,4 +273,19 @@ module.exports = async function(host) {
             body: "div.post-style__cont"
         }
     });
+
+    await addSource({
+        name: "再见我的克拉默",
+        guidPrefix: "mashironooto",
+        url: "https://sayonara-cramer.com/news/",
+        index: {
+            url: "div.news-main article.news-main__block>a.link",
+            idTemplate: "{{url}}",
+            title: "div.news-main article.news-main__block>div.news-main__block--ttl>div.ttl",
+            date: "div.news-main article.news-main__block>div.news-main__block--date>span"
+        },
+        description: {
+            body: "div.news-article__main"
+        }
+    });
 }
