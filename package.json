@@ -7,7 +7,7 @@
     "generate": "node ./lib/index.js ./seasons/"
   },
   "author": "ProjectXero",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "dependencies": {
     "cheerio": "*",
     "got": "^11.8.2",

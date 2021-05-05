@@ -26,6 +26,6 @@
 
 较难处理在多个季度播放的且使用同一个新闻来源的番剧。例如连续2季度放送和分割放送。
 
-## 协议
+## 开源协议
 
-本项目基于 [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) 开源。
+本项目中的文本与各番剧网站的番剧新闻聚合收集器（即 Markdown 文件与 `seasons` 目录）基于 [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) 开源，生成器与上传模块（即 `lib` 目录）基于 [MIT License](https://github.com/XeroAlpha/BangumiNewsRss/blob/main/LICENSE) 开源。
