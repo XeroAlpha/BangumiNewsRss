@@ -7,9 +7,9 @@ title: 番剧新闻聚合
 
 [TOC]
 
-上季（2021年冬季）RSS：[http://rss.projectxero.top/bangumi/prev.xml](http://rss.projectxero.top/view/?src=bangumi%2Fprev.xml)
+上季（2021年冬季）RSS：[https://rss.projectxero.top/bangumi/prev.xml](https://rss.projectxero.top/view/?src=bangumi%2Fprev.xml)
 
-本季（2021年春季）RSS：[http://rss.projectxero.top/bangumi/current.xml](http://rss.projectxero.top/view/?src=bangumi%2Fcurrent.xml)
+本季（2021年春季）RSS：[https://rss.projectxero.top/bangumi/current.xml](https://rss.projectxero.top/view/?src=bangumi%2Fcurrent.xml)
 
 > 上方链接为隐式重定向链接，其指向的 RSS 源会随季度改变而改变。稳定的 RSS 源已列在下方。
 
@@ -23,9 +23,9 @@ title: 番剧新闻聚合
 
 状态：**每半小时检查一次**，正在收录来源
 
-RSS：[http://rss.projectxero.top/bangumi/2021-04.xml](http://rss.projectxero.top/view/?src=bangumi%2F2021-04.xml)
+RSS：[https://rss.projectxero.top/bangumi/2021-04.xml](https://rss.projectxero.top/view/?src=bangumi%2F2021-04.xml)
 
-Scenario：http://rss.projectxero.top/scenarios/18/export.json
+Scenario：https://rss.projectxero.top/scenarios/18/export.json
 
 包含番剧：
 - [通灵王(第2作)](https://shamanking-project.com/news)
@@ -44,9 +44,9 @@ Scenario：http://rss.projectxero.top/scenarios/18/export.json
 
 状态：**每天0:00检查一次**，不再添加新的来源
 
-RSS：[http://rss.projectxero.top/bangumi/2020-10.xml](http://rss.projectxero.top/view/?src=bangumi%2F2020-10.xml)
+RSS：[https://rss.projectxero.top/bangumi/2020-10.xml](https://rss.projectxero.top/view/?src=bangumi%2F2020-10.xml)
 
-Scenario：http://rss.projectxero.top/scenarios/2/export.json
+Scenario：https://rss.projectxero.top/scenarios/2/export.json
 
 包含番剧：
 - [总之就是非常可爱](http://tonikawa.com/news/)
@@ -62,9 +62,9 @@ Scenario：http://rss.projectxero.top/scenarios/2/export.json
 
 状态：**每半小时检查一次**，来源收录已完成
 
-RSS：[http://rss.projectxero.top/bangumi/2021-01.xml](http://rss.projectxero.top/view/?src=bangumi%2F2021-01.xml)
+RSS：[https://rss.projectxero.top/bangumi/2021-01.xml](https://rss.projectxero.top/view/?src=bangumi%2F2021-01.xml)
 
-Scenario：http://rss.projectxero.top/scenarios/6/export.json
+Scenario：https://rss.projectxero.top/scenarios/6/export.json
 
 包含番剧：
 - [工作细胞!!](https://hataraku-saibou.com/news_gekijou/)
@@ -136,4 +136,4 @@ Scenario：http://rss.projectxero.top/scenarios/6/export.json
 ## 相关链接
 
 - [源代码](https://github.com/XeroAlpha/BangumiNewsRss)
-- [结构说明](http://rss.projectxero.top/bangumi/structure.html)
+- [结构说明](https://rss.projectxero.top/bangumi/structure.html)

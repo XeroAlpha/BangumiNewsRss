@@ -189,11 +189,11 @@ Rss 为数据的收集端，是一个 Data Output Agent，用于收集所有 [Me
   ],
   "expected_receive_period_in_days": 2,
   "template": {
-    "self": "http://rss.projectxero.top/bangumi/（XML_ID）.xml",
-    "icon": "http://rss.projectxero.top/bangumi/icon/（XML_ID）.jpg",
+    "self": "https://rss.projectxero.top/bangumi/（XML_ID）.xml",
+    "icon": "https://rss.projectxero.top/bangumi/icon/（XML_ID）.jpg",
     "title": "（季度）番剧新闻",
     "description": "本RSS源自动从番剧网站上收集新闻并打包为RSS",
-    "link": "http://rss.projectxero.top",
+    "link": "https://rss.projectxero.top",
     "copyright": "内容版权归原网站所有",
     "webMaster": "projectxero@163.com",
     "item": {

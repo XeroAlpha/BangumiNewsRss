@@ -10,11 +10,11 @@ module.exports = async function(host) {
         schedule: "every_30m",
         maxCount: 20 * 63,
         rss: {
-            "self": "http://rss.projectxero.top/bangumi/2021-04.xml",
-            "icon": "http://rss.projectxero.top/bangumi/icon/2021-04.jpg",
+            "self": "https://rss.projectxero.top/bangumi/2021-04.xml",
+            "icon": "https://rss.projectxero.top/bangumi/icon/2021-04.jpg",
             "title": "2021年春季番剧新闻",
             "description": "本RSS源自动从番剧网站上收集新闻并打包为RSS",
-            "link": "http://rss.projectxero.top",
+            "link": "https://rss.projectxero.top",
             "copyright": "内容版权归原网站所有",
             "webMaster": "projectxero@163.com",
         }
