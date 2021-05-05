@@ -65,9 +65,20 @@ interface SourceOptions {
     guidPrefix: string;
 
     /**
+     * 显示新闻的网页 URL，与新闻来源 URL 相同时可省略。
+     */
+    page?: string;
+
+
+    /**
      * 新闻来源 URL
      */
     url: string;
+
+    /**
+     * Index Agent 所抓取内容的格式
+     */
+    indexFormat?: WebsiteFormatEnum;
 
     /**
      * Index Agent 的抓取参数
@@ -111,7 +122,26 @@ interface SourceOptions {
     hideFromRss?: boolean = false;
 }
 
-type WebsiteAgentOptionValue = string | [string, string] | [WebsiteAgentOptionValue, string];
+type WebsiteFormatEnum = "html" | "xml" | "json" | "text";
+
+interface WebsiteAgentXmlExtractParam {
+    css?: string;
+    xpath?: string;
+    value: string;
+}
+
+interface WebsiteAgentJsonExtractParam {
+    path: string;
+}
+
+interface WebsiteAgentTextExtractParam {
+    regexp: string;
+    index: number;
+}
+
+type WebsiteAgentExtractParam = WebsiteAgentXmlExtractParam | WebsiteAgentJsonExtractParam | WebsiteAgentTextExtractParam;
+
+type WebsiteAgentOptionValue = string | WebsiteAgentExtractParam | [string, string] | [WebsiteAgentOptions, string];
 
 interface WebsiteAgentOptions {
     /**
