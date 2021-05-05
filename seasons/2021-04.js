@@ -258,4 +258,19 @@ module.exports = async function(host) {
             body: "div.c-article__body"
         }
     });
+
+    await addSource({
+        name: "真白之音",
+        guidPrefix: "mashironooto",
+        url: "https://mashironooto-official.com/news/",
+        index: {
+            url: "div.news-lineup article.news-lineup__block>a",
+            idTemplate: "{{url}}",
+            title: "div.news-lineup article.news-lineup__block>h2.ttl",
+            date: "div.news-lineup article.news-lineup__block>span.date"
+        },
+        description: {
+            body: "div.post-style__cont"
+        }
+    });
 }
