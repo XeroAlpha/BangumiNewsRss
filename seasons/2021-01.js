@@ -1,3 +1,7 @@
+/**
+ * 2021年冬季番剧新闻
+ * @param { import("../lib/loaderHost") } host 加载器宿主对象
+ */
 module.exports = async function(host) {
     const { prepareSeason, addSource } = host;
 
@@ -15,8 +19,7 @@ module.exports = async function(host) {
             "link": "http://rss.projectxero.top",
             "copyright": "内容版权归原网站所有",
             "webMaster": "projectxero@163.com",
-        },
-        offline: true
+        }
     });
 
     await addSource({

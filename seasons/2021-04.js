@@ -1,3 +1,7 @@
+/**
+ * 2021年春季番剧新闻
+ * @param { import("../lib/loaderHost") } host 加载器宿主对象
+ */
 module.exports = async function(host) {
     const { prepareSeason, addSource, wip, dryRun, hideFromRss } = host;
 
@@ -218,6 +222,9 @@ module.exports = async function(host) {
             category: "ul.m-list-topics li .topics-link>dl>dt>span.link-cat"
         },
         getExtractor: function(url, payload) {
+            /**
+             * @type { import("../lib/loaderHost").ExtractorGeneratorResult }
+             */
             let result = { id: url };
             result.date = payload.dateAndCategory.replace(payload.category, "");
             if (url.startsWith("/tv/precure/news/")) {
