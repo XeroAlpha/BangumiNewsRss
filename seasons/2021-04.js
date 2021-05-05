@@ -241,4 +241,21 @@ module.exports = async function(host) {
             return result;
         }
     });
+
+    // TODO: 添加转生史莱姆日记（链接形式）
+
+    await addSource({
+        name: "影宅",
+        guidPrefix: "shadowshouse",
+        url: "https://shadowshouse-anime.com/news/",
+        index: {
+            url: ["ul.p-news__list li.p-news__item a.p-news__link", "{{ url | to_uri: 'https://shadowshouse-anime.com/news/' }}"],
+            idTemplate: "{{url}}",
+            title: "ul.p-news__list li.p-news__item div.p-news__title",
+            date: "ul.p-news__list li.p-news__item div.p-news__date"
+        },
+        description: {
+            body: "div.c-article__body"
+        }
+    });
 }

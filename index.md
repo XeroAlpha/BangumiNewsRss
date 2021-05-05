@@ -39,6 +39,7 @@ Scenario：https://rss.projectxero.top/scenarios/18/export.json
 - [86 -不存在的战区-](https://anime-86.com/news/)
 - [美少年侦探团](https://bishonen-tanteidan.com/news/)
 - [Tropical-Rouge!光之美少女](https://www.toei-anim.co.jp/tv/precure/news/)
+- [影宅](https://shadowshouse-anime.com/news/)
 
 ### 2020年秋季
 
