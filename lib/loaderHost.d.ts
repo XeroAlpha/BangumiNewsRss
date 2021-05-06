@@ -69,11 +69,15 @@ interface SourceOptions {
      */
     page?: string;
 
-
     /**
      * 新闻来源 URL
      */
     url: string;
+
+    /**
+     * 自定义收集器管道
+     */
+    pipe?: Array<AgentOptions>;
 
     /**
      * Index Agent 所抓取内容的格式
@@ -120,6 +124,10 @@ interface SourceOptions {
      * 指示是否在 Rss 的新闻条目列表中隐藏所有来自此项新闻来源的消息。
      */
     hideFromRss?: boolean = false;
+}
+
+interface AgentOptions {
+    [key: string]: any;
 }
 
 type WebsiteFormatEnum = "html" | "xml" | "json" | "text";
