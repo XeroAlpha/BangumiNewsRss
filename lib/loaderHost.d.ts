@@ -55,9 +55,14 @@ interface SourceOptions {
     name: string;
 
     /**
-     * 季度名，用于覆盖这条新闻来源的 Agent 的前缀。通常为番剧（系列）开播的季度。
+     * 起始季度名，用于覆盖这条新闻来源的 Agent 的前缀。通常为番剧（系列）开播的季度。
      */
     season?: string;
+
+    /**
+     * 所属季度列表，表示这一新闻来源同时包含在其他季度的描述文件中。
+     */
+    includedSeasons?: Array<string>;
 
     /**
      * RSS 新闻条目的唯一标识符前缀
