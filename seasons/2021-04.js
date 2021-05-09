@@ -276,7 +276,7 @@ module.exports = async function(host) {
 
     await addSource({
         name: "再见我的克拉默",
-        guidPrefix: "mashironooto",
+        guidPrefix: "sayonara_cramer",
         url: "https://sayonara-cramer.com/news/",
         index: {
             url: "div.news-main article.news-main__block>a.link",
@@ -287,5 +287,63 @@ module.exports = async function(host) {
         description: {
             body: "div.news-article__main"
         }
+    });
+
+    await addSource({
+        name: "致不灭的你", // 《论模块化网站结构的重要性》
+        guidPrefix: "fumetsunoanatae",
+        page: "https://www.anime-fumetsunoanatae.com/",
+        url: "https://www.anime-fumetsunoanatae.com/assets/data/topics-ja.json",
+        indexFormat: "json",
+        index: {
+            topics: "topics"
+        },
+        merge: {
+            link: "{{url}}"
+        },
+        pipe: [
+            "index",
+            {
+                name: "DateFiller",
+                type: "Agents::JavaScriptAgent",
+                schedule: "never",
+                options: JSON.stringify({
+                    expected_update_period_in_days: 7,
+                    language: "JavaScript",
+                    code: "Agent.receive = " + (function(){
+                        let events = this.incomingEvents();
+                        events.forEach(event => {
+                            let i, lastDate = event.created_at;
+                            let uniqueEvents = this.memory("unique_events") || [];
+                            let topics = event.payload.topics;
+                            for (i = 0; i < topics.length; i++) {
+                                let topic = topics[i];
+                                let isNotUnique = uniqueEvents.find(ev => ev.text == topic.text && ev.url == topic.url);
+                                topic.date = topic.date || lastDate;
+                                if (!isNotUnique) {
+                                    let url;
+                                    if (topic.url) {
+                                        url = "https://www.anime-fumetsunoanatae.com" + topic.url;
+                                    } else {
+                                        url = "https://www.anime-fumetsunoanatae.com/#" + topic.text;
+                                    }
+                                    this.createEvent({
+                                        id: topic.text,
+                                        url,
+                                        title: topic.text,
+                                        date: topic.date,
+                                        body: "请在浏览器里打开"
+                                    });
+                                    uniqueEvents.push(topic);
+                                }
+                                lastDate = topic.date;
+                            }
+                            this.memory("unique_events", uniqueEvents);
+                        });
+                    }).toString().replace(/^\s+/mg, "")
+                })
+            },
+            "merge"
+        ], wip: "clean"
     });
 }
