@@ -67,7 +67,7 @@ interface SourceOptions {
     /**
      * RSS 新闻条目的唯一标识符前缀
      */
-    guidPrefix: string;
+    guidPrefix?: string;
 
     /**
      * 显示新闻的网页 URL，与新闻来源 URL 相同时可省略。
@@ -77,12 +77,12 @@ interface SourceOptions {
     /**
      * 新闻来源 URL
      */
-    url: string;
+    url?: string;
 
     /**
      * 自定义收集器管道
      */
-    pipe?: Array<AgentOptions>;
+    pipe?: Array<AgentOptions | AgentTemplateId>;
 
     /**
      * Index Agent 所抓取内容的格式
@@ -92,7 +92,7 @@ interface SourceOptions {
     /**
      * Index Agent 的抓取参数
      */
-    index: WebsiteAgentOptions;
+    index?: WebsiteAgentOptions;
 
     /**
      * ExtractorGenerator Agent 的生成器函数
@@ -131,7 +131,12 @@ interface SourceOptions {
     hideFromRss?: boolean = false;
 }
 
+type AgentTemplateId = "index" | "extractorGenerator" | "extractorDescription" | "description" | "merge" | "mergeJS";
+
 interface AgentOptions {
+    type: string;
+    name: string;
+    schedule?: HuginnSchedule;
     [key: string]: any;
 }
 
