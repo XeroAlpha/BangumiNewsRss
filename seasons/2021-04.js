@@ -344,6 +344,20 @@ module.exports = async function(host) {
                 })
             },
             "merge"
-        ], wip: "clean"
+        ]
+    });
+
+    addSource({
+        name: "不要欺负我，长瀞同学",
+        guidPrefix: "nagatorosan",
+        url: "https://www.nagatorosan.jp/news/",
+        index: {
+            url: ["ul.list>li>a", "https://www.nagatorosan.jp/news/{{url}}"],
+            title: "ul.list>li>a>p",
+            date: "ul.list>li>a>time"
+        },
+        description: {
+            body: "div.detail>div.bg"
+        }
     });
 }
