@@ -360,4 +360,18 @@ module.exports = async function(host) {
             body: "div.detail>div.bg"
         }
     });
+
+    addSource({
+        name: "龙先生、想要买个家。",
+        guidPrefix: "doraie",
+        url: "https://doraie.com/news/",
+        index: {
+            url: ["section.news-list article.news-item a.news-item__link", "https://doraie.com{{url}}"],
+            title: "section.news-list article.news-item span.news-item__title",
+            date: "section.news-list article.news-item span.news-item__date"
+        },
+        description: {
+            body: "div.c-article-body"
+        }
+    });
 }
