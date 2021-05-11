@@ -85,7 +85,7 @@ interface SourceOptions {
     pipe?: Array<AgentOptions | AgentTemplateId>;
 
     /**
-     * Index Agent 所抓取内容的格式
+     * Index Agent 所抓取内容的格式。默认为 `"html"`。
      */
     indexFormat?: WebsiteFormatEnum;
 
@@ -93,6 +93,12 @@ interface SourceOptions {
      * Index Agent 的抓取参数
      */
     index?: WebsiteAgentOptions;
+
+    /**
+     * Description Agent 所抓取内容的格式。默认为 `"html"`。  
+     * ExtractorGenerator 与 ExtractorDescription 均假定这一参数为 `"html"`。
+     */
+    descFormat?: WebsiteFormatEnum;
 
     /**
      * ExtractorGenerator Agent 的生成器函数
@@ -143,17 +149,38 @@ interface AgentOptions {
 type WebsiteFormatEnum = "html" | "xml" | "json" | "text";
 
 interface WebsiteAgentXmlExtractParam {
+    /**
+     * CSS 选择器。仅在提取 HTML 或 XML 时使用。
+     */
     css?: string;
+
+    /**
+     * XPath 选择器。仅在提取 HTML 或 XML 时使用。
+     */
     xpath?: string;
+
+    /**
+     * 值的 XPath 表达式。仅在提取 HTML 或 XML 时使用。
+     */
     value: string;
 }
 
 interface WebsiteAgentJsonExtractParam {
+    /**
+     * JSON 路径。仅在提取 JSON 时使用。
+     */
     path: string;
 }
 
 interface WebsiteAgentTextExtractParam {
+    /**
+     * 匹配内容的正则表达式。仅在提取文本时使用。
+     */
     regexp: string;
+
+    /**
+     * 匹配结果中内容对应的索引。仅在提取文本时使用。
+     */
     index: number;
 }
 
@@ -221,12 +248,12 @@ interface WebsiteAgentResult {
 
 interface ExtractorGeneratorResult extends WebsiteAgentResult {
     /**
-     * 新闻条目内容的 CSS 选择器
+     * 新闻条目内容的 CSS 选择器。默认为 `"body"` 。
      */
     bodySelector?: string;
 
     /**
-     * 新闻条目内容的 XPath
+     * 新闻条目内容的 XPath 表达式。默认为 `"./node()"` 。
      */
     bodyXPath?: string;
 }
