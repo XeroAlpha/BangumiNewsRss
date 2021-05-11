@@ -390,6 +390,24 @@ module.exports = async function(host) {
         descFormat: "json",
         description: { // 这个新闻内容是 markdown 格式
             body: ["body", "<pre style=\"white-space: pre-wrap\">{{ body | escape }}</pre>"]
-        }, wip
+        }
+    });
+
+    await addSource({
+        name: "忧国的莫里亚蒂",
+        guidPrefix: "moriarty",
+        url: "https://moriarty-anime.com/news",
+        season: "202010",
+        index: {
+            url: "div.news-contents-inner article.news-box a.news-box-link",
+            idTemplate: "{{url}}",
+            // Nokogiri 不允许在 h3 标签内包含 p 标签，因此将 p 解析为了 h3 的兄弟元素
+            title: "div.news-contents-inner article.news-box h3.news-box-ttl+p",
+            // Liquid 似乎会将 &nbsp;(%C2%A0) 等字符串自动转换为空格，进而导致替换失败
+            date: ["div.news-contents-inner article.news-box p.news-box-date", "{{ date | url_encode | remove: '%C2%A0%7C%C2%A0' | url_decode }}"]
+        },
+        description: {
+            body: "div.news-detail-content"
+        }
     });
 }
