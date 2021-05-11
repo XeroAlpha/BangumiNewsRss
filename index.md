@@ -45,6 +45,7 @@ Scenario：https://rss.projectxero.top/scenarios/18/export.json
 - [致不灭的你](https://anime-fumetsunoanatae.com/)
 - [不要欺负我，长瀞同学](https://www.nagatorosan.jp/news/)
 - [龙先生、想要买个家。](https://doraie.com/news/)
+- [如果这叫爱情感觉会很恶心](https://koikimo.jp/news)
 
 ### 2020年秋季
 

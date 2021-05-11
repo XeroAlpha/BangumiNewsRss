@@ -347,7 +347,7 @@ module.exports = async function(host) {
         ]
     });
 
-    addSource({
+    await addSource({
         name: "不要欺负我，长瀞同学",
         guidPrefix: "nagatorosan",
         url: "https://www.nagatorosan.jp/news/",
@@ -361,7 +361,7 @@ module.exports = async function(host) {
         }
     });
 
-    addSource({
+    await addSource({
         name: "龙先生、想要买个家。",
         guidPrefix: "doraie",
         url: "https://doraie.com/news/",
@@ -373,5 +373,23 @@ module.exports = async function(host) {
         description: {
             body: "div.c-article-body"
         }
+    });
+
+    await addSource({
+        name: "如果这叫爱情感觉会很恶心",
+        guidPrefix: "koikimo",
+        page: "https://koikimo.jp/news",
+        url: "https://koikimo.jp/api/article?category=0&limit=10&page=1",
+        indexFormat: "json",
+        index: {
+            id: "list[*].uuid",
+            urlTemplate: "https://koikimo.jp/api/article/{{id}}",
+            title: "list[*].title",
+            date: "list[*].publish_start_at"
+        },
+        descFormat: "json",
+        description: { // 这个新闻内容是 markdown 格式
+            body: ["body", "<pre style=\"white-space: pre-wrap\">{{ body | escape }}</pre>"]
+        }, wip
     });
 }
