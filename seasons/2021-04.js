@@ -424,4 +424,17 @@ module.exports = async function(host) {
             body: "div.c-news-body"
         }
     });
+
+    await addSource({
+        name: "灼热卡巴迪",
+        guidPrefix: "kabaddi",
+        url: "https://www.tv-tokyo.co.jp/anime/kabaddi/news/",
+        index: {
+            id: "main.ly_main>a",
+            urlTemplate: "https://www.tv-tokyo.co.jp/anime/kabaddi/news/#{{id}}",
+            title: "main.ly_main>article.bl_news h2.bl_news_ttl",
+            date: "main.ly_main>article.bl_news time.bl_news_date",
+            body: "main.ly_main>article.bl_news div.bl_news_body"
+        }
+    });
 }
