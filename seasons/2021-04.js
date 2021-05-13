@@ -410,4 +410,18 @@ module.exports = async function(host) {
             body: "div.news-detail-content"
         }
     });
+
+    await addSource({
+        name: "东京卍复仇者",
+        guidPrefix: "tokyo_revengers",
+        url: "https://tokyo-revengers-anime.com/news/",
+        index: {
+            url: ["section.news-list article.c-news-item a.c-news-item__link", "https://tokyo-revengers-anime.com{{url}}"],
+            title: "section.news-list article.c-news-item span.c-news-item__title",
+            date: "section.news-list article.c-news-item span.c-news-date"
+        },
+        description: {
+            body: "div.c-news-body"
+        }
+    });
 }

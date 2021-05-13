@@ -47,6 +47,7 @@ Scenario：https://rss.projectxero.top/scenarios/18/export.json
 - [龙先生、想要买个家。](https://doraie.com/news/)
 - [如果这叫爱情感觉会很恶心](https://koikimo.jp/news)
 - [忧国的莫里亚蒂(第2季度)](https://moriarty-anime.com/news)（系列共用源）
+- [东京卍复仇者](https://tokyo-revengers-anime.com/news/)
 
 ### 2020年秋季
 
