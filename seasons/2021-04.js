@@ -480,4 +480,23 @@ module.exports = async function(host) {
             body: "div#Entries article.content-entry div.entry-body"
         }
     });
+
+    await addSource({
+        name: "持续狩猎史莱姆三百年，不知不觉就练到LV MAX",
+        guidPrefix: "slime300",
+        url: "https://slime300-anime.com/news/",
+        index: {
+            url: { xpath: "//div[starts-with(@class, \"news__ContentWrap\")]/a" },
+            urlTemplate: "https://slime300-anime.com{{url}}",
+            idTemplate: "{{url}}",
+            title: { xpath: "//div[starts-with(@class, \"news__ContentWrap\")]/a/div/p[position() = last()]" },
+            date: { xpath: "//div[starts-with(@class, \"news__ContentWrap\")]/a/div/p[starts-with(@class, \"news__Date\")]" }
+        },
+        description: {
+            body: [{
+                image: { xpath: "//div[starts-with(@class, \"news__ImageWrap\")]", template: "banner" },
+                body: { xpath: "//div[starts-with(@class, \"news__Value\")]" }
+            }, "<p>{{image}}</p>{{body}}"]
+        }
+    });
 }

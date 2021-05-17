@@ -52,6 +52,7 @@ Scenario：https://rss.projectxero.top/scenarios/18/export.json
 - [烧窑的话也要马克杯](https://yakumo-project.com/news/)
 - [刮掉胡子的我与捡到的女高中生](http://higehiro-anime.com/news)
 - [青梅竹马绝对不会输的恋爱喜剧](https://osamake.com/news.html)
+- [持续狩猎史莱姆三百年，不知不觉就练到LV MAX](https://slime300-anime.com/news/)
 
 暂不加入：
 - [席斯坦 -The Roman Fighter-](https://www.tv-tokyo.co.jp/anime/kabaddi/news/)（Huginn 暂不支持读取 Firebase Firestore 服务的内容）
