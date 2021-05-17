@@ -49,6 +49,10 @@ Scenario：https://rss.projectxero.top/scenarios/18/export.json
 - [忧国的莫里亚蒂(第2季度)](https://moriarty-anime.com/news)（系列共用源）
 - [东京卍复仇者](https://tokyo-revengers-anime.com/news/)
 - [灼热卡巴迪](https://www.tv-tokyo.co.jp/anime/kabaddi/news/)
+- [烧窑的话也要马克杯](https://yakumo-project.com/news/)
+
+暂不加入：
+- [席斯坦 -The Roman Fighter-](https://www.tv-tokyo.co.jp/anime/kabaddi/news/)（Huginn 暂不支持读取 Firebase Firestore 服务的内容）
 
 ### 2020年秋季
 

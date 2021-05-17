@@ -437,4 +437,21 @@ module.exports = async function(host) {
             body: "main.ly_main>article.bl_news div.bl_news_body"
         }
     });
+
+    // 席斯坦 -The Roman Fighter-：暂不支持读取 Firebase Firestore 服务的内容
+
+    await addSource({
+        name: "烧窑的话也要马克杯",
+        guidPrefix: "yakumo",
+        url: "https://yakumo-project.com/news/",
+        index: {
+            url: ["div.news__wrap>ul li>a", "https://yakumo-project.com/news/{{url}}"],
+            idTemplate: "{{url}}",
+            title: "div.news__wrap>ul li>a>p",
+            date: "div.news__wrap>ul li>a>time"
+        },
+        description: {
+            body: "div.articleSingleCont"
+        },  wip: "clean"
+    });
 }
