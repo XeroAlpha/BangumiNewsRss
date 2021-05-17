@@ -452,6 +452,19 @@ module.exports = async function(host) {
         },
         description: {
             body: "div.articleSingleCont"
-        },  wip: "clean"
+        }
+    });
+
+    await addSource({
+        name: "刮掉胡子的我与捡到的女高中生",
+        guidPrefix: "higehiro",
+        url: "http://higehiro-anime.com/news",
+        index: {
+            id: "ul.news>li",
+            urlTemplate: "http://higehiro-anime.com/news#{{id}}",
+            title: [{ titleAndDate: "ul.news>li>h3" }, "{{ titleAndDate | remove_first: date }}"],
+            date: "ul.news>li>h3>span",
+            body: "ul.news>li div.txt"
+        }
     });
 }
