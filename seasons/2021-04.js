@@ -467,4 +467,17 @@ module.exports = async function(host) {
             body: "ul.news>li div.txt"
         }
     });
+
+    await addSource({
+        name: "青梅竹马绝对不会输的恋爱喜剧",
+        guidPrefix: "osamake",
+        url: "https://osamake.com/news.html",
+        index: {
+            id: "div#Entries article.content-entry",
+            urlTemplate: "https://osamake.com/news.html#{{id}}",
+            title: "div#Entries article.content-entry h2.entry-title>span",
+            date: "div#Entries article.content-entry div.entry-date>span",
+            body: "div#Entries article.content-entry div.entry-body"
+        }
+    });
 }
