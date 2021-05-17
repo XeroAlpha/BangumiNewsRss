@@ -148,7 +148,9 @@ interface AgentOptions {
 
 type WebsiteFormatEnum = "html" | "xml" | "json" | "text";
 
-interface WebsiteAgentXmlExtractParam {
+type WebsiteAgentExtractParamTemplateId = "id" | "url" | "text" | "title" | "date" | "image" | "banner" | "body" | "default";
+
+interface WebsiteAgentXmlExtractParam extends WebsiteAgentBaseExtractParam {
     /**
      * CSS 选择器。仅在提取 HTML 或 XML 时使用。
      */
@@ -162,7 +164,12 @@ interface WebsiteAgentXmlExtractParam {
     /**
      * 值的 XPath 表达式。仅在提取 HTML 或 XML 时使用。
      */
-    value: string;
+    value?: string;
+
+    /**
+     * 值的 XPath 模板 ID。仅在提取 HTML 或 XML 时使用。
+     */
+    template?: AgentTemplateId
 }
 
 interface WebsiteAgentJsonExtractParam {
@@ -181,7 +188,7 @@ interface WebsiteAgentTextExtractParam {
     /**
      * 匹配结果中内容对应的索引。仅在提取文本时使用。
      */
-    index: number;
+    index?: number;
 }
 
 type WebsiteAgentExtractParam = WebsiteAgentXmlExtractParam | WebsiteAgentJsonExtractParam | WebsiteAgentTextExtractParam;
