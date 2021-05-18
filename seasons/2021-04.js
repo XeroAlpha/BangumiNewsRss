@@ -499,4 +499,17 @@ module.exports = async function(host) {
             }, "<p>{{image}}</p>{{body}}"]
         }
     });
+
+    await addSource({
+        name: "战斗员派遣中!",
+        guidPrefix: "kisaragi",
+        url: "https://kisaragi-co.jp/news.html",
+        index: {
+            id: "div#Entries article.content-entry",
+            urlTemplate: "https://kisaragi-co.jp/news.html#{{id}}",
+            title: "div#Entries article.content-entry h2.entry-title>span",
+            date: "div#Entries article.content-entry div.entry-date>span",
+            body: "div#Entries article.content-entry div.entry-body"
+        }
+    });
 }
