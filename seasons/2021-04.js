@@ -512,4 +512,23 @@ module.exports = async function(host) {
             body: "div#Entries article.content-entry div.entry-body"
         }
     });
+
+    await addSource({
+        name: "圣女魔力无所不能",
+        guidPrefix: "seijyonomaryoku",
+        url: "https://seijyonomaryoku.jp/news.php",
+        index: {
+            id: "div.m-newspage-article-container article.m-newspage-article",
+            urlTemplate: "https://seijyonomaryoku.jp/news.php#{{id}}",
+            title: "div.m-newspage-article-container article.m-newspage-article h1.m-newspage-article-heading",
+            date: {
+                css: "div.m-newspage-article-container article.m-newspage-article time.m-newspage-article-time",
+                value: "@datetime"
+            },
+            body: {
+                css: "div.m-newspage-article-container article.m-newspage-article",
+                value: ".//div[contains(@class, \"m-newspage-article-text-box\")]/node()"
+            }
+        }
+    });
 }
