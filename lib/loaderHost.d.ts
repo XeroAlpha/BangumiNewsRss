@@ -169,7 +169,7 @@ interface WebsiteAgentXmlExtractParam extends WebsiteAgentBaseExtractParam {
     /**
      * 值的 XPath 模板 ID。仅在提取 HTML 或 XML 时使用。
      */
-    template?: AgentTemplateId
+    template?: WebsiteAgentExtractParamTemplateId
 }
 
 interface WebsiteAgentJsonExtractParam {

@@ -548,4 +548,23 @@ module.exports = async function(host) {
             }
         }
     });
+
+    await addSource({
+        name: "异世界魔王与召唤少女的奴隶魔术Ω",
+        guidPrefix: "isekaimaou",
+        url: "https://isekaimaou-anime.com/news/",
+        index: {
+            url: "div.news--lineup article.md-newsblock a.linkwrap",
+            idTemplate: "{{url}}",
+            title: "div.news--lineup article.md-newsblock h3.ttl",
+            date: "div.news--lineup article.md-newsblock div.date",
+            thumb: {
+                css: "div.news--lineup article.md-newsblock div.thumb>div.thumb",
+                template: "body"
+            }
+        },
+        description: {
+            body: ["div.md-newsdetail--main", "{{thumb}}<br />{{body}}"]
+        }
+    });
 }

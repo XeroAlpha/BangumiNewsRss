@@ -56,6 +56,7 @@ Scenario：https://rss.projectxero.top/scenarios/18/export.json
 - [战斗员派遣中!](https://kisaragi-co.jp/news.html)
 - [圣女魔力无所不能](https://seijyonomaryoku.jp/news.php)
 - [本田小狼与我](https://supercub-anime.com/news/)
+- [异世界魔王与召唤少女的奴隶魔术Ω](https://isekaimaou-anime.com/news/)
 
 暂不加入：
 - [席斯坦 -The Roman Fighter-](https://www.tv-tokyo.co.jp/anime/kabaddi/news/)（Huginn 暂不支持读取 Firebase Firestore 服务的内容）
