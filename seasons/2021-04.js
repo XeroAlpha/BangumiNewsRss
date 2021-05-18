@@ -531,4 +531,21 @@ module.exports = async function(host) {
             }
         }
     });
+
+    await addSource({
+        name: "本田小狼与我",
+        guidPrefix: "supercub",
+        url: "https://supercub-anime.com/news/",
+        index: {
+            url: ["div#list_01>table tr div.title a", "{{ url | to_uri: 'https://supercub-anime.com/news/' }}"],
+            idTemplate: "{{url}}",
+            title: "div#list_01>table tr div.title a",
+            date: "div#list_01>table tr td.day"
+        },
+        getExtractor: function(url) {
+            if (url.startsWith("https://supercub-anime.com/news/")) {
+                return { bodySelector: "div#news_block>div:first-of-type" };
+            }
+        }
+    });
 }
