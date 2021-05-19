@@ -154,6 +154,18 @@ Scenario：https://rss.projectxero.top/scenarios/6/export.json
 - [金塔马尼犬](https://kintamani-dog.com/)（不存在新闻页）
 - [俗女纯爱大作战](https://jimihen.cf-anime.com/)（R18不收录）
 
+### 通用新闻来源
+
+状态：**每半小时检查一次**，正在收录来源
+
+RSS：[https://rss.projectxero.top/bangumi/common.xml](https://rss.projectxero.top/view/?src=bangumi%2Fcommon.xml)
+
+Scenario：https://rss.projectxero.top/scenarios/20/export.json
+
+包含来源：
+- [animateTimes](https://www.animatetimes.com/index.php?p=1)
+- [AnimeAnime](https://animeanime.jp/article/?page=1)（使用 GMT +8 时区）
+
 ## 相关链接
 
 - [源代码](https://github.com/XeroAlpha/BangumiNewsRss)
