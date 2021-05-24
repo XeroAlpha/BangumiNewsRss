@@ -592,4 +592,19 @@ module.exports = async function(host) {
             body: "div.page_contents_wrapper"
         }
     });
+
+    await addSource({
+        name: "美妙世界 The Animation",
+        guidPrefix: "subarashiki",
+        url: "https://subarashiki-anime.jp/news",
+        index: {
+            url: "section.newsList>ul li>a",
+            idTemplate: "{{url}}",
+            title: "section.newsList>ul li>a>p",
+            date: "section.newsList>ul li>a>span.date"
+        },
+        description: {
+            body: "section.newsDetail>article"
+        }
+    });
 }
