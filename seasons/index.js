@@ -19,13 +19,23 @@ module.exports = async function(host) {
     require("./older")(host);
 
     host.defineShortcut({
+        id: "current",
         name: "本季",
         rssLink: "https://rss.projectxero.top/bangumi/current.xml",
         viewerLink: "https://rss.projectxero.top/view/?src=bangumi%2Fcurrent.xml",
         season: "202104"
     });
 
+    // host.defineShortcut({
+    //     id: "next",
+    //     name: "下季",
+    //     rssLink: "https://rss.projectxero.top/bangumi/next.xml",
+    //     viewerLink: "https://rss.projectxero.top/view/?src=bangumi%2Fnext.xml",
+    //     season: "202107"
+    // });
+
     host.defineShortcut({
+        id: "prev",
         name: "上季",
         rssLink: "https://rss.projectxero.top/bangumi/prev.xml",
         viewerLink: "https://rss.projectxero.top/view/?src=bangumi%2Fprev.xml",

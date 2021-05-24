@@ -30,7 +30,7 @@
     <h2>快捷链接</h2>
     {% for shortcut in shortcuts %}
       <p>
-        {{ shortcut.name }}（<a href="#{{ shortcut.ref.id }}">{{ shortcut.ref.name }}</a>）RSS：
+        <a href="#{{ shortcut.id }}">{{ shortcut.name }}</a>（<a href="#{{ shortcut.ref.id }}">{{ shortcut.ref.name }}</a>）RSS：
         <a href="{{ shortcut.viewerLink }}">{{ shortcut.rssLink }}</a>
       </p>
     {% endfor %}
@@ -43,10 +43,20 @@
     <p>
       站长联系方式：<a href="mailto:projectxero@163.com" target="_blank">projectxero@163.com</a>
     </p>
+
     <h2>已收集内容</h2>
+
+    <ul>
+      {% for season in seasons %}
+        <li>
+          <a href="#{{ season.id }}">{{ season.name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+
     {% for season in seasons %}
       <h3 id="{{ season.id }}">
-        {{ season.name }}{% if season.shortcut  %}（{{ season.shortcut.name }}）{% endif %}
+        {{ season.name }}{% if season.shortcut  %}（<span id="{{ season.shortcut.id }}">{{ season.shortcut.name }}</span>）{% endif %}
       </h3>
       <p>状态：
         <strong>

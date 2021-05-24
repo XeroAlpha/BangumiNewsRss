@@ -399,25 +399,30 @@ interface SkippedSourceInfo extends SourceInfo {
 
 interface ShortcutOptions {
     /**
+     * 重定向 ID。
+     */
+    id: string;
+    
+    /**
      * 重定向名称。
      */
-     name: string;
+    name: string;
  
-     /**
-      * RSS 文件的 URL。
-      */
-     rssLink: string;
+    /**
+     * RSS 文件的 URL。
+     */
+    rssLink: string;
  
-     /**
-      * RSS 文件对应阅览器的 URL。
-      */
-     viewerLink: string;
+    /**
+     * RSS 文件对应阅览器的 URL。
+     */
+    viewerLink: string;
 
-     /**
-      * 重定向指向的季度 ID。
-      * 若在调用时不存在此季度则调用无效。
-      */
-     season: string;
+    /**
+     * 重定向指向的季度 ID。
+     * 若在调用时不存在此季度则调用无效。
+     */
+    season: string;
 }
 
 /**
