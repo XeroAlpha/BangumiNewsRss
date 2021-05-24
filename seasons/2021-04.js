@@ -577,4 +577,19 @@ module.exports = async function(host) {
             body: ["div.md-newsdetail--main", "{{thumb}}<br />{{body}}"]
         }
     });
+
+    await addSource({
+        name: "如果究极进化的完全沉浸RPG比现实还更像垃圾游戏的话",
+        guidPrefix: "fulldiverpg",
+        url: "https://fulldive-rpg.com/news.html",
+        index: {
+            url: ["div.page_contents_wrapper>ul li p.page_news_title>a", "https://fulldive-rpg.com/{{url}}"],
+            idTemplate: "{{url}}",
+            title: "div.page_contents_wrapper>ul li p.page_news_title>a",
+            date: ["div.page_contents_wrapper>ul li p.page_news_date", "{{ date | replace: '. ', '.' }}"]
+        },
+        description: {
+            body: "div.page_contents_wrapper"
+        }
+    });
 }
