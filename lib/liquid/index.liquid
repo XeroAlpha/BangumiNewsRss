@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <title>番剧新闻聚合</title>
+    <link rel="stylesheet" href="https://projectxero.top/css/github-markdown.css">
+    <style>
+      .markdown-body {
+        box-sizing: border-box;
+        min-width: 200px;
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 45px;
+      }
+
+      @media (max-width: 767px) {
+        .markdown-body {
+          padding: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body class="markdown-body">
+    <h1>番剧新闻聚合</h1>
+    <p>
+      本页面提供各大番剧官网的新闻聚合（RSS）服务，基于 <a href="https://github.com/huginn/huginn">Huginn</a> 实现。
+    </p>
+
+    <h2>快捷链接</h2>
+    {% for shortcut in shortcuts %}
+      <p>
+        {{ shortcut.name }}（<a href="#{{ shortcut.ref.id }}">{{ shortcut.ref.name }}</a>）RSS：
+        <a href="{{ shortcut.viewerLink }}">{{ shortcut.rssLink }}</a>
+      </p>
+    {% endfor %}
+    <blockquote>
+      <p>
+        上方链接为隐式重定向链接，其指向的 RSS 源会随季度改变而改变。稳定的 RSS 源已列在下方。
+      </p>
+    </blockquote>
+    <p>文档更新日期：<code>{{ "now" | date: "%Y/%m/%d %H:%M" }}</code></p>
+    <p>
+      站长联系方式：<a href="mailto:projectxero@163.com" target="_blank">projectxero@163.com</a>
+    </p>
+    <h2>已收集内容</h2>
+    {% for season in seasons %}
+      <h3 id="{{ season.id }}">
+        {{ season.name }}{% if season.shortcut  %}（{{ season.shortcut.name }}）{% endif %}
+      </h3>
+      <p>状态：
+        <strong>
+          {% case season.schedule %}
+            {% when "every_1m" %}每分钟检查一次
+            {% when "every_2m" %}每 2 分钟检查一次
+            {% when "every_5m" %}每 5 分钟检查一次
+            {% when "every_10m" %}每 10 分钟检查一次
+            {% when "every_30m" %}每半小时检查一次
+            {% when "every_1h" %}每小时检查一次
+            {% when "every_2h" %}每 2 小时检查一次
+            {% when "every_5h" %}每 5 小时检查一次
+            {% when "every_12h" %}每 12 小时检查一次
+            {% when "every_1d" %}每天检查一次
+            {% when "every_2d" %}每 2 天检查一次
+            {% when "every_7d" %}每周检查一次
+            {% when "midnight" %}每天 0:00 检查一次
+            {% when "1am" %}每天 1:00 检查一次
+            {% when "2am" %}每天 2:00 检查一次
+            {% when "3am" %}每天 3:00 检查一次
+            {% when "4am" %}每天 4:00 检查一次
+            {% when "5am" %}每天 5:00 检查一次
+            {% when "6am" %}每天 6:00 检查一次
+            {% when "7am" %}每天 7:00 检查一次
+            {% when "8am" %}每天 8:00 检查一次
+            {% when "9am" %}每天 9:00 检查一次
+            {% when "10am" %}每天 10:00 检查一次
+            {% when "11am" %}每天 11:00 检查一次
+            {% when "noon" %}每天 12:00 检查一次
+            {% when "1pm" %}每天 13:00 检查一次
+            {% when "2pm" %}每天 14:00 检查一次
+            {% when "3pm" %}每天 15:00 检查一次
+            {% when "4pm" %}每天 16:00 检查一次
+            {% when "5pm" %}每天 17:00 检查一次
+            {% when "6pm" %}每天 18:00 检查一次
+            {% when "7pm" %}每天 19:00 检查一次
+            {% when "8pm" %}每天 20:00 检查一次
+            {% when "9pm" %}每天 21:00 检查一次
+            {% when "10pm" %}每天 22:00 检查一次
+            {% when "11pm" %}每天 23:00 检查一次
+            {% when "never" %}不再检查
+            {% else %}随 Huginn 计划任务 <code>{{ season.schedule }}</code> 检查
+          {% endcase %}
+        </strong>
+        （{{ season.status }}）
+      </p>
+      <p>
+        RSS：<a href="{{ season.viewerLink }}" target="_blank">{{ season.rssLink }}</a>
+      </p>
+      <p>
+        Scenario：<a href="{{ season.scenarioLink }}" target="_blank">{{ season.scenarioLink }}</a>
+      </p>
+      <p>包含番剧：</p>
+      <ul>
+        {% for source in season.sources %}
+          <li>
+            <a href="{{ source.page }}">{{ source.name }}</a>
+            {% if source.comment  %}（{{ source.comment }}）{% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+      {% if season.skippedSources.length > 0 %}
+        <p>暂不加入：</p>
+        <ul>
+          {% for source in season.skippedSources %}
+            <li>
+              <a href="{{ source.page }}">{{ source.name }}</a>
+              {% if source.reason  %}（{{ source.reason }}）{% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endfor %}
+
+    <h2>相关链接</h2>
+    <ul>
+      <li><a href="https://github.com/XeroAlpha/BangumiNewsRss">源代码</a></li>
+      <li><a href="https://rss.projectxero.top/bangumi/structure.html">结构说明</a>
+      </li>
+    </ul>
+  </body>
+</html>

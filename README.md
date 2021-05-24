@@ -4,7 +4,7 @@
 
 ## 包含番剧
 
-请参阅 [项目主页](https://github.com/XeroAlpha/BangumiNewsRss/blob/main/index.md) 。
+请参阅 [项目主页](https://rss.projectxero.top/bangumi/) 。
 
 ## 项目原理
 

@@ -5,6 +5,11 @@ interface SeasonOptions {
     id: string;
 
     /**
+     * 季度名称。
+     */
+    name: string;
+
+    /**
      * Huginn 计划常量，指示 Scheduler 应该在何时触发。
      */
     schedule: HuginnSchedule;
@@ -19,6 +24,21 @@ interface SeasonOptions {
      * @see https://zh.wikipedia.org/wiki/RSS
      */
     rss: RssOptions;
+
+    /**
+     * Scenario 描述文件的 URL。
+     */
+    scenarioLink: string;
+
+    /**
+     * RSS 文件的 URL。
+     */
+    rssLink: string;
+
+    /**
+     * RSS 文件对应阅览器的 URL。
+     */
+    viewerLink: string;
 
     /**
      * 指示是否忽略这个季度。
@@ -150,7 +170,7 @@ type WebsiteFormatEnum = "html" | "xml" | "json" | "text";
 
 type WebsiteAgentExtractParamTemplateId = "id" | "url" | "text" | "title" | "date" | "image" | "banner" | "body" | "default";
 
-interface WebsiteAgentXmlExtractParam extends WebsiteAgentBaseExtractParam {
+interface WebsiteAgentXmlExtractParam {
     /**
      * CSS 选择器。仅在提取 HTML 或 XML 时使用。
      */
@@ -301,6 +321,105 @@ type MergeAgentResult = MergeAgentOptions;
 
 type MergeAgentFunc = (payload: WebsiteAgentResult) => MergeAgentResult;
 
+interface SeasonInfo {
+    /**
+     * 季度 ID。
+     */
+    id: string;
+
+    /**
+     * 季度名称。
+     */
+    name: string;
+
+    /**
+     * Huginn 计划常量。
+     */
+    schedule: HuginnSchedule;
+
+    /**
+     * Scenario 描述文件的 URL。
+     */
+    scenarioLink: string;
+
+    /**
+     * RSS 文件的 URL。
+     */
+    rssLink: string;
+
+    /**
+     * RSS 文件对应阅览器的 URL。
+     */
+    viewerLink: string;
+
+    /**
+     * 包含的新闻来源信息。
+     */
+    sources: SourceInfo[];
+
+    /**
+     * 跳过的的新闻来源信息。
+     */
+    skippedSources?: SkippedSourceInfo[];
+}
+
+interface SourceInfo {
+    /**
+     * 新闻来源名称。
+     */
+    name: string;
+
+    /**
+     * 起始季度名。
+     */
+    season?: string;
+
+    /**
+     * 所属季度列表。
+     */
+    includedSeasons?: Array<string>;
+
+    /**
+     * 显示新闻的网页 URL。
+     */
+    page: string;
+
+    /**
+     * 此来源的注释。
+     */
+    comment: string;
+}
+
+interface SkippedSourceInfo extends SourceInfo {
+    /**
+     * 被跳过的原因。
+     */
+    reason: string;
+}
+
+interface ShortcutOptions {
+    /**
+     * 重定向名称。
+     */
+     name: string;
+ 
+     /**
+      * RSS 文件的 URL。
+      */
+     rssLink: string;
+ 
+     /**
+      * RSS 文件对应阅览器的 URL。
+      */
+     viewerLink: string;
+
+     /**
+      * 重定向指向的季度 ID。
+      * 若在调用时不存在此季度则调用无效。
+      */
+     season: string;
+}
+
 /**
  * 创建或更新每个季度共用的 Agent 和 Scenario。
  * @param season 季度参数
@@ -312,6 +431,24 @@ export function prepareSeason(season: SeasonOptions): Promise<void>;
  * @param source 新闻来源参数
  */
 export function addSource(source: SourceOptions): Promise<void>;
+
+/**
+ * 标记某个新闻来源为“跳过”。
+ * @param source 新闻来源参数
+ */
+export function skipSource(source: SkippedSourceInfo): void;
+
+/**
+ * 为指定季度添加描述信息，便于生成 RSS 索引。
+ * @param season 季度参数
+ */
+export function mockSeason(season: SeasonInfo): void;
+
+/**
+ * 定义隐式重定向链接。
+ * @param shortcut 重定向参数
+ */
+export function defineShortcut(shortcut: ShortcutOptions): void;
 
 /**
  * 预定义常量，表示启用 `offline` 选项。

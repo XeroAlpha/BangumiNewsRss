@@ -11,6 +11,7 @@
   "dependencies": {
     "cheerio": "*",
     "got": "^11.8.2",
+    "liquidjs": "^9.25.0",
     "tough-cookie": "^4.0.0",
     "tunnel": "^0.0.6"
   }

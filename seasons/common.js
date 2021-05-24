@@ -1,5 +1,5 @@
 /**
- * 2021年春季番剧新闻
+ * 通用新闻来源
  * @param { import("../lib/loaderHost") } host 加载器宿主对象
  */
 module.exports = async function(host) {
@@ -7,10 +7,14 @@ module.exports = async function(host) {
 
     await prepareSeason({
         id: "common",
+        name: "通用新闻来源",
         schedule: "every_30m",
+        status: "正在收录来源",
+        scenarioLink: "https://rss.projectxero.top/scenarios/20/export.json",
+        rssLink: "https://rss.projectxero.top/bangumi/common.xml",
+        viewerLink: "https://rss.projectxero.top/view/?src=bangumi%2Fcommon.xml",
         maxCount: 1000,
         rss: {
-            "self": "https://rss.projectxero.top/bangumi/common.xml",
             "icon": "https://rss.projectxero.top/bangumi/icon/common.jpg",
             "title": "常见番剧网站新闻聚合",
             "description": "本RSS源自动从番剧网站上收集新闻并打包为RSS",
@@ -20,7 +24,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({ // GMT +9
+    await addSource({
         name: "animateTimes",
         guidPrefix: "animatetimes",
         url: "https://www.animatetimes.com/index.php?p=1",
@@ -39,8 +43,9 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({ // GMT +8
+    await addSource({
         name: "AnimeAnime",
+        comment: "使用 GMT +8 时区",
         guidPrefix: "animeanime",
         url: "https://animeanime.jp/article/?page=1",
         index: {

@@ -3,14 +3,18 @@
  * @param { import("../lib/loaderHost") } host 加载器宿主对象
  */
 module.exports = async function(host) {
-    const { prepareSeason, addSource, wip, dryRun, hideFromRss } = host;
+    const { prepareSeason, addSource, skipSource, wip, dryRun, hideFromRss } = host;
 
     await prepareSeason({
         id: "202104",
+        name: "2021年春季",
         schedule: "every_30m",
+        status: "正在收集来源",
         maxCount: 20 * 63,
+        scenarioLink: "https://rss.projectxero.top/scenarios/18/export.json",
+        rssLink: "https://rss.projectxero.top/bangumi/2021-04.xml",
+        viewerLink: "https://rss.projectxero.top/view/?src=bangumi%2F2021-04.xml",
         rss: {
-            "self": "https://rss.projectxero.top/bangumi/2021-04.xml",
             "icon": "https://rss.projectxero.top/bangumi/icon/2021-04.jpg",
             "title": "2021年春季番剧新闻",
             "description": "本RSS源自动从番剧网站上收集新闻并打包为RSS",
@@ -160,7 +164,8 @@ module.exports = async function(host) {
     });
 
     await addSource({
-        name: "SSSS.GRIDMAN", // SSSS系列通用
+        name: "SSSS.GRIDMAN",
+        comment: "SSSS动画系列共用源",
         season: "201810",
         guidPrefix: "gridman",
         url: "https://gridman.net/news/",
@@ -395,6 +400,7 @@ module.exports = async function(host) {
 
     await addSource({
         name: "忧国的莫里亚蒂",
+        comment: "系列共用源",
         guidPrefix: "moriarty",
         url: "https://moriarty-anime.com/news",
         season: "202010",
@@ -438,7 +444,11 @@ module.exports = async function(host) {
         }
     });
 
-    // 席斯坦 -The Roman Fighter-：暂不支持读取 Firebase Firestore 服务的内容
+    skipSource({
+        name: "席斯坦 -The Roman Fighter-",
+        page: "https://cestvs-anime.com/",
+        reason: "暂不支持读取 Firebase Firestore 服务的内容"
+    });
 
     await addSource({
         name: "烧窑的话也要马克杯",
