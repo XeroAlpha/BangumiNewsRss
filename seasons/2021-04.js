@@ -620,6 +620,21 @@ module.exports = async function(host) {
         },
         description: {
             body: "div.newstext"
-        }, wip: "clean"
+        }
+    });
+
+    await addSource({
+        name: "BLUE REFLECTION RAY/澪",
+        guidPrefix: "bluereflection_ray",
+        url: "https://www.bluereflection-ray.com/news/",
+        index: {
+            url: "ul.news_list li>a",
+            idTemplate: "{{url}}",
+        },
+        description: {
+            title: "h1.news_title",
+            date: ["p.news_date_label>span.date", "{{ date | regex_replace: '(\\d+)年(\\d+)月(\\d+)日', '\\1.\\2.\\3' }}"],
+            body: "div.news_body"
+        }
     });
 }
