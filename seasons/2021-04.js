@@ -607,4 +607,19 @@ module.exports = async function(host) {
             body: "section.newsDetail>article"
         }
     });
+
+    await addSource({
+        name: "七骑士 -英雄的继承者-",
+        guidPrefix: "sevenknights",
+        url: "https://sevenknights-anime.jp/news/?page_id=1",
+        index: {
+            url: ["div.newslist>ul li>a", "https://sevenknights-anime.jp/news/{{url}}"],
+            idTemplate: "{{url}}",
+            title: [{ titleAndDate: "div.newslist>ul li>a" }, "{{ titleAndDate | remove_first: date }}"],
+            date: "div.newslist>ul li>a>span"
+        },
+        description: {
+            body: "div.newstext"
+        }, wip: "clean"
+    });
 }
