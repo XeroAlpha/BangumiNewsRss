@@ -52,11 +52,24 @@ module.exports = async function(host) {
             url: ["div.news-list>section.item a.link", "https://animeanime.jp{{url}}"],
             idTemplate: "{{url}}",
             title: "div.news-list>section.item h2.title",
-            date: { css: "div.news-list>section.item time.date", value: "@datetime" },
-            image: { css: "div.news-list>section.item img.figure", value: "." }
+            date: { css: "div.news-list>section.item time.date", value: "@datetime" }
         },
-        description: {
-            body: ["article.arti-body", "{{image}}<br />{{body}}"]
+        description: { 
+            body: [
+                {
+                    body: "article.arti-body",
+                    imageExample: {
+                        css: "div.figure-area>figure>img",
+                        value: "@src"
+                    },
+                    imageList: {
+                        css: "div.figure-area>ul.thumb-list",
+                        value: "."
+                    }
+                },
+                "{% assign imgPathCommon = imageExample | regex_replace: '/imgs/p/(\\w+)/(?:\\d+).(?:\\w+)', '/p/\\1/' %}" +
+                "{{ imageList | replace: '/sq_sl/', imgPathCommon }}<br />{{ body }}"
+            ]
         }
     });
 }
