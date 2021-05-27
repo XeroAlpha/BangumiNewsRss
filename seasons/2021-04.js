@@ -653,4 +653,19 @@ module.exports = async function(host) {
             body: "div.main>article div.body-text"
         }
     });
+
+    await addSource({
+        name: "Vivy -Fluorite Eye's Song-",
+        guidPrefix: "vivy-portal",
+        url: "https://vivy-portal.com/news/",
+        index: {
+            url: ["ul.p-news__list li.p-news__item a.p-news__link", "{{ url | to_uri: 'https://vivy-portal.com/news/' }}"],
+            id: "ul.p-news__list li.p-news__item",
+            title: "ul.p-news__list li.p-news__item div.p-news__title",
+            date: "ul.p-news__list li.p-news__item div.p-news__date"
+        },
+        description: {
+            body: "div.c-article__body"
+        }
+    });
 }
