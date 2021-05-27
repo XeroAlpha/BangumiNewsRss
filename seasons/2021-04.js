@@ -637,4 +637,20 @@ module.exports = async function(host) {
             body: "div.news_body"
         }
     });
+
+    await addSource({
+        name: "NOMAD MEGALO BOX 2",
+        guidPrefix: "megalobox2",
+        url: "https://megalobox2news.tumblr.com/",
+        index: {
+            url: "div.main>article h2.title>a",
+            id: {
+                css: "div.main>article",
+                value: "@data-post-id"
+            },
+            title: "div.main>article h2.title>a",
+            date: ["div.main>article a.post-date", "{{ date | regex_replace: '(\\d+)月 (\\d+)(?:st|nd|rd|th), (\\d+)', '\\3.\\1.\\2' }}"],
+            body: "div.main>article div.body-text"
+        }
+    });
 }

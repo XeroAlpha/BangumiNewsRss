@@ -49,7 +49,7 @@
     <ul>
       {% for season in seasons %}
         <li>
-          <a href="#{{ season.id }}">{{ season.name }}</a>
+          <a href="#{{ season.id }}">{{ season.name }}</a>（<a href="{{ season.viewerLink }}" target="_blank">预览</a>）
         </li>
       {% endfor %}
     </ul>
