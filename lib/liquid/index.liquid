@@ -31,7 +31,7 @@
     {% for shortcut in shortcuts %}
       <p>
         <a href="#{{ shortcut.id }}">{{ shortcut.name }}</a>（<a href="#{{ shortcut.ref.id }}">{{ shortcut.ref.name }}</a>）RSS：
-        <a href="{{ shortcut.viewerLink }}">{{ shortcut.rssLink }}</a>
+        <a target="_blank" rel="noopener noreferer" href="{{ shortcut.viewerLink }}">{{ shortcut.rssLink }}</a>
       </p>
     {% endfor %}
     <blockquote>
@@ -41,7 +41,7 @@
     </blockquote>
     <p>文档更新日期：<code>{{ "now" | date: "%Y/%m/%d %H:%M" }}</code></p>
     <p>
-      站长联系方式：<a href="mailto:projectxero@163.com" target="_blank">projectxero@163.com</a>
+      站长联系方式：<a target="_blank" rel="noopener noreferer" href="mailto:projectxero@163.com">projectxero@163.com</a>
     </p>
 
     <h2>已收集内容</h2>
@@ -49,7 +49,7 @@
     <ul>
       {% for season in seasons %}
         <li>
-          <a href="#{{ season.id }}">{{ season.name }}</a>（<a href="{{ season.viewerLink }}" target="_blank">预览</a>）
+          <a href="#{{ season.id }}">{{ season.name }}</a>（<a target="_blank" rel="noopener noreferer" href="{{ season.viewerLink }}">预览</a>）
         </li>
       {% endfor %}
     </ul>
@@ -104,16 +104,16 @@
         （{{ season.status }}）
       </p>
       <p>
-        RSS：<a href="{{ season.viewerLink }}" target="_blank">{{ season.rssLink }}</a>
+        RSS：<a target="_blank" rel="noopener noreferer" href="{{ season.viewerLink }}">{{ season.rssLink }}</a>
       </p>
       <p>
-        Scenario：<a href="{{ season.scenarioLink }}" target="_blank">{{ season.scenarioLink }}</a>
+        Scenario：<a target="_blank" rel="noopener noreferer" href="{{ season.scenarioLink }}">{{ season.scenarioLink }}</a>
       </p>
       <p>包含番剧：</p>
       <ul>
         {% for source in season.sources %}
           <li>
-            <a href="{{ source.page }}">{{ source.name }}</a>
+            <a target="_blank" rel="noopener noreferer" href="{{ source.page }}">{{ source.name }}</a>
             {% if source.comment  %}（{{ source.comment }}）{% endif %}
           </li>
         {% endfor %}
@@ -123,7 +123,7 @@
         <ul>
           {% for source in season.skippedSources %}
             <li>
-              <a href="{{ source.page }}">{{ source.name }}</a>
+              <a target="_blank" rel="noopener noreferer" href="{{ source.page }}">{{ source.name }}</a>
               {% if source.reason  %}（{{ source.reason }}）{% endif %}
             </li>
           {% endfor %}
@@ -133,8 +133,8 @@
 
     <h2>相关链接</h2>
     <ul>
-      <li><a href="https://github.com/XeroAlpha/BangumiNewsRss">源代码</a></li>
-      <li><a href="https://rss.projectxero.top/bangumi/structure.html">结构说明</a>
+      <li><a target="_blank" rel="noopener noreferer" href="https://github.com/XeroAlpha/BangumiNewsRss">源代码</a></li>
+      <li><a target="_blank" rel="noopener noreferer" href="https://rss.projectxero.top/bangumi/structure.html">结构说明</a>
       </li>
     </ul>
   </body>

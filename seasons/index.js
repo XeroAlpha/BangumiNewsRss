@@ -11,12 +11,16 @@ module.exports = async function(host) {
     console.log("Loading 2021-01");
     await require("./2021-01")(host);
 
+    // 旧新闻来源
+    require("./older")(host);
+
     // 通用
     console.log("Loading Common");
     await require("./common")(host);
 
-    // 旧新闻来源
-    require("./older")(host);
+    // 番剧列表
+    console.log("Loading BangumiList");
+    await require("./bangumiList")(host);
 
     host.defineShortcut({
         id: "current",
