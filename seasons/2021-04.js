@@ -668,4 +668,19 @@ module.exports = async function(host) {
             body: "div.c-article__body"
         }
     });
+
+    await addSource({
+        name: "后空翻少年!!",
+        guidPrefix: "bakuten",
+        url: "https://bakuten-pr.com/news/",
+        index: {
+            url: "ul.news-list>li>a",
+            idTemplate: "{{url}}",
+            title: "ul.news-list>li>a>p.title",
+            date: "ul.news-list>li>a>p.date"
+        },
+        description: {
+            body: "div.text"
+        }
+    });
 }
