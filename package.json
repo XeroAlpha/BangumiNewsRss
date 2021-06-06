@@ -14,5 +14,8 @@
     "liquidjs": "^9.25.0",
     "tough-cookie": "^4.0.0",
     "tunnel": "^0.0.6"
+  },
+  "devDependencies": {
+    "phantomjscloud": "^3.5.5"
   }
 }

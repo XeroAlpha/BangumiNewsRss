@@ -97,7 +97,7 @@ interface SourceOptions {
     /**
      * 新闻来源 URL
      */
-    url?: string;
+    url?: string | PhantomJsCloudRequest;
 
     /**
      * 自定义收集器管道
@@ -320,6 +320,8 @@ interface MergeAgentOptions {
 type MergeAgentResult = MergeAgentOptions;
 
 type MergeAgentFunc = (payload: WebsiteAgentResult) => MergeAgentResult;
+
+type PhantomJsCloudRequest = import("phantomjscloud").ioDatatypes.IPageRequest;
 
 interface SeasonInfo {
     /**

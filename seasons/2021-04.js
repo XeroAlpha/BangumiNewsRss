@@ -468,7 +468,16 @@ module.exports = async function(host) {
     await addSource({
         name: "刮掉胡子的我与捡到的女高中生",
         guidPrefix: "higehiro",
-        url: "http://higehiro-anime.com/news",
+        page: "http://higehiro-anime.com/news",
+        url: {
+            url: "http://higehiro-anime.com/news",
+            renderType: "html",
+            requestSettings: {
+                ignoreImages: true,
+                disableJavascript: true,
+                waitInterval: 0
+            }
+        },
         index: {
             id: "ul.news>li",
             urlTemplate: "http://higehiro-anime.com/news#{{id}}",
@@ -681,6 +690,21 @@ module.exports = async function(host) {
         },
         description: {
             body: "div.text"
+        }
+    });
+
+    await addSource({
+        name: "MARS RED",
+        guidPrefix: "marsred",
+        url: "https://marsred.tv/news",
+        index: {
+            url: "div.newsWrap article.newsArticle>a",
+            idTemplate: "{{url}}",
+            title: "div.newsWrap article.newsArticle h3.newsArticleTtl",
+            date: "div.newsWrap article.newsArticle p.newsArticleDate>time"
+        },
+        description: {
+            body: "div#wysiwygArea"
         }
     });
 }
