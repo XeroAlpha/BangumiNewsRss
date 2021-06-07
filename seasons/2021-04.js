@@ -444,10 +444,28 @@ module.exports = async function(host) {
         }
     });
 
-    skipSource({
+    await addSource({
         name: "席斯坦 -The Roman Fighter-",
-        page: "https://cestvs-anime.com/",
-        reason: "暂不支持读取 Firebase Firestore 服务的内容"
+        guidPrefix: "cestvs",
+        url: "https://cestvs-anime.com/news",
+        phantomJsCloud: {
+            common: {
+                requestSettings: {
+                    ignoreImages: true
+                }
+            },
+            index: true,
+            desc: true
+        },
+        index: {
+            url: ["ul.news-list li.news-item>a", "https://cestvs-anime.com{{url}}"],
+            idTemplate: "{{url}}",
+            title: "ul.news-list li.news-item p.title",
+            date: "ul.news-list li.news-item time"
+        },
+        description: {
+            body: "div.paragraphs"
+        }
     });
 
     await addSource({
@@ -468,15 +486,16 @@ module.exports = async function(host) {
     await addSource({
         name: "刮掉胡子的我与捡到的女高中生",
         guidPrefix: "higehiro",
-        page: "http://higehiro-anime.com/news",
-        url: {
-            url: "http://higehiro-anime.com/news",
-            renderType: "html",
-            requestSettings: {
-                ignoreImages: true,
-                disableJavascript: true,
-                waitInterval: 0
-            }
+        url: "http://higehiro-anime.com/news",
+        phantomJsCloud: {
+            common: {
+                requestSettings: {
+                    ignoreImages: true,
+                    disableJavascript: true,
+                    waitInterval: 0
+                }
+            },
+            index: true
         },
         index: {
             id: "ul.news>li",
