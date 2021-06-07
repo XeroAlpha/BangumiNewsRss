@@ -97,7 +97,12 @@ interface SourceOptions {
     /**
      * 新闻来源 URL
      */
-    url?: string | PhantomJsCloudRequest;
+    url?: string;
+
+    /**
+     * PhantomJsCloud 的配置列表。注意此选项只会复制浅层的属性。
+     */
+    phantomJsCloud?: PhantomJsCloudOptions;
 
     /**
      * 自定义收集器管道
@@ -320,6 +325,28 @@ interface MergeAgentOptions {
 type MergeAgentResult = MergeAgentOptions;
 
 type MergeAgentFunc = (payload: WebsiteAgentResult) => MergeAgentResult;
+
+interface PhantomJsCloudOptions {
+    /**
+     * 公用配置条目，仅会被浅层复制。
+     */
+    common?: PhantomJsCloudRequest;
+
+    /**
+     * Index Agent 配置条目
+     */
+    index?: true | PhantomJsCloudRequest;
+
+    /**
+     * Description Agent 配置条目
+     */
+    desc?: true | PhantomJsCloudRequest;
+
+    /**
+     * 保存 Api-Key 的 Credential 名称
+     */
+    apiKey?: string;
+}
 
 type PhantomJsCloudRequest = import("phantomjscloud").ioDatatypes.IPageRequest;
 
