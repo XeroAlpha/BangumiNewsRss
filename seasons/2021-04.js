@@ -726,4 +726,20 @@ module.exports = async function(host) {
             body: "div#wysiwygArea"
         }
     });
+
+    await addSource({
+        name: "扰乱 THE PRINCESS OF SNOW AND BLOOD",
+        guidPrefix: "joran",
+        url: "https://joran.jp/news/",
+        index: {
+            id: "div.main_content>div.container dl.news_list",
+            urlTemplate: "https://joran.jp/news/#{{id}}",
+            title: "div.main_content>div.container dl.news_list h2.news_ttl",
+            date: "div.main_content>div.container dl.news_list>dt",
+            body: [{
+                cover: "div.main_content>div.container dl.news_list dd.news_img",
+                body: "div.main_content>div.container dl.news_list div.news_content"
+            }, "{{cover}}<br />{{body}}"]
+        }
+    });
 }
