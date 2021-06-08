@@ -43,17 +43,17 @@ interface SeasonOptions {
     /**
      * 指示是否忽略这个季度。
      */
-    offline?: boolean = false;
+    offline?: boolean;
 
     /**
      * 指示是否只输出 Agent 参数而不实际创建或更新 Agent 或 Scenario。
      */
-    dryRun?: boolean = false;
+    dryRun?: boolean;
 
     /**
      * 指示在季度共用 Agent 或 Scenario 已存在时，是否强制更新季度参数
      */
-    wip?: boolean = false;
+    wip?: boolean;
 }
 
 type HuginnSchedule = "every_1m" | "every_2m" | "every_5m" | "every_10m" | "every_30m" | 
@@ -143,23 +143,23 @@ interface SourceOptions {
     /**
      * 指示是否忽略这个这个新闻来源。
      */
-    offline?: boolean = false;
+    offline?: boolean;
 
     /**
      * 指示是否只输出 Agent 参数而不实际创建或更新 Agent。
      */
-    dryRun?: boolean = false;
+    dryRun?: boolean;
 
     /**
      * 指示在新闻来源 Agent 已存在时，是否强制更新新闻来源参数。  
      * 当值为 `"clean"` 时，同时会清除 Agent 创建的事件与使用的存储。
      */
-    wip?: boolean | "clean" = false;
+    wip?: boolean | "clean";
 
     /**
      * 指示是否在 Rss 的新闻条目列表中隐藏所有来自此项新闻来源的消息。
      */
-    hideFromRss?: boolean = false;
+    hideFromRss?: boolean;
 }
 
 type AgentTemplateId = "index" | "extractorGenerator" | "extractorDescription" | "description" | "merge" | "mergeJS";
@@ -348,7 +348,8 @@ interface PhantomJsCloudOptions {
     apiKey?: string;
 }
 
-type PhantomJsCloudRequest = import("phantomjscloud").ioDatatypes.IPageRequest;
+// source: 
+type PhantomJsCloudRequest = import("./phantomjscloud-io-data-types").IPageRequest;
 
 interface SeasonInfo {
     /**
