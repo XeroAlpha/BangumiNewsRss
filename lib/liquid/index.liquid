@@ -49,14 +49,19 @@
     <ul>
       {% for season in seasons %}
         <li>
-          <a href="#{{ season.id }}">{{ season.name }}</a>（<a target="_blank" rel="noopener noreferer" href="{{ season.viewerLink }}">预览</a>）
+          <a href="#{{ season.id }}">
+            {% if season.shortcut  %}<span id="{{ season.shortcut.id }}">{{ season.shortcut.name }}</span>：{% endif %}
+            {{ season.name }} 
+          </a>
+          （<a target="_blank" rel="noopener noreferer" href="{{ season.viewerLink }}">预览</a>）
         </li>
       {% endfor %}
     </ul>
 
     {% for season in seasons %}
       <h3 id="{{ season.id }}">
-        {{ season.name }}{% if season.shortcut  %}（<span id="{{ season.shortcut.id }}">{{ season.shortcut.name }}</span>）{% endif %}
+        {% if season.shortcut  %}<span id="{{ season.shortcut.id }}">{{ season.shortcut.name }}</span>：{% endif %}
+        {{ season.name }}
       </h3>
       <p>状态：
         <strong>
@@ -134,8 +139,8 @@
     <h2>相关链接</h2>
     <ul>
       <li><a target="_blank" rel="noopener noreferer" href="https://github.com/XeroAlpha/BangumiNewsRss">源代码</a></li>
-      <li><a target="_blank" rel="noopener noreferer" href="https://rss.projectxero.top/bangumi/structure.html">结构说明</a>
-      </li>
+      <li><a target="_blank" rel="noopener noreferer" href="https://rss.projectxero.top/bangumi/structure.html">结构说明</a></li>
+      <li><a target="_blank" rel="noopener noreferer" href="{{ site }}">Huginn 管理控制台</a></li>
     </ul>
   </body>
 </html>
