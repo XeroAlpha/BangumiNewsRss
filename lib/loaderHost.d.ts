@@ -474,6 +474,12 @@ export function addSource(source: SourceOptions): Promise<void>;
 export function skipSource(source: SkippedSourceInfo): void;
 
 /**
+ * 标记某个新闻来源为“待填写”。
+ * @param source 新闻来源参数
+ */
+export function stubSource(source: SourceInfo): void;
+
+/**
  * 为指定季度添加描述信息，便于生成 RSS 索引。
  * @param season 季度参数
  */
