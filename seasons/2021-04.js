@@ -742,4 +742,33 @@ module.exports = async function(host) {
             }, "{{cover}}<br />{{body}}"]
         }
     });
+
+    skipSource({
+        name: "武士弥助",
+        url: "https://www.netflix.com/title/80990863",
+        reason: "无新闻网页"
+    });
+
+    skipSource({
+        name: "伊甸",
+        url: "https://www.netflix.com/title/80992783",
+        reason: "无新闻网页"
+    });
+
+    await addSource({
+        name: "Fairy兰丸～让我来帮助你的心～",
+        guidPrefix: "fairyran",
+        url: "https://f-ran.jp/news.html",
+        index: {
+            url: ["div.newsPaging>article a.title_link", "https://f-ran.jp/{{url}}"],
+            id: "div.newsPaging>article>div",
+            title: "div.newsPaging>article div.news_list_title",
+            date: "div.newsPaging>article div.news_list_day"
+        },
+        getExtractor: function(url) {
+            if (url.startsWith("https://f-ran.jp/news/")) {
+                return { bodySelector: "div.news_inner2" };
+            }
+        }
+    });
 }
