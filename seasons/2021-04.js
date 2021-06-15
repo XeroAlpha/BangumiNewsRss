@@ -3,7 +3,7 @@
  * @param { import("../lib/loaderHost") } host 加载器宿主对象
  */
 module.exports = async function(host) {
-    const { prepareSeason, addSource, skipSource, wip, dryRun, hideFromRss } = host;
+    const { prepareSeason, addSource, skipSource, stubSource, wip, dryRun, hideFromRss } = host;
 
     await prepareSeason({
         id: "202104",
@@ -770,5 +770,105 @@ module.exports = async function(host) {
                 return { bodySelector: "div.news_inner2" };
             }
         }
+    });
+
+    await addSource({
+        name: "ODD TAXI",
+        guidPrefix: "oddtaxi",
+        page: "https://oddtaxi.jp/news",
+        url: "https://oddtaxi.jp/wp-json/oddtaxi/init",
+        indexFormat: "json",
+        index: {
+            id: "news[*].id",
+            urlTemplate: "https://oddtaxi.jp/news/{{id}}",
+            title: "news[*].title",
+            date: "news[*].date",
+            body: "news[*].body"
+        }
+    });
+
+    stubSource({
+        name: "甜梦猫 MIX!",
+        page: "https://mewkledreamy.com/"
+    });
+
+    stubSource({
+        name: "妖怪手表♪",
+        page: "https://www.tv-tokyo.co.jp/anime/youkai-watch2021/"
+    });
+
+    stubSource({
+        name: "更多!认真地不认真的怪侠佐罗利 第2系列",
+        page: "http://www.zorori.jp/"
+    });
+
+    stubSource({
+        name: "SD高达世界 群英集",
+        page: "https://sd-gundam-world.net/heroes/"
+    });
+
+    stubSource({
+        name: "卡片战斗先导者 overDress SEASON1",
+        page: "https://anime.cf-vanguard.com/overdress/"
+    });
+
+    stubSource({
+        name: "新干线变形机器人 SHINKALION Z",
+        page: "https://www.shinkalion.com/"
+    });
+
+    stubSource({
+        name: "决斗大师 KING!",
+        page: "https://www.tv-tokyo.co.jp/anime/dm_king"
+    });
+
+    stubSource({
+        name: "MAZICA PARTY",
+        page: "https://www.tv-osaka.co.jp/mazicaparty/staff.html"
+    });
+
+    stubSource({
+        name: "战斗陀螺BURST Dynamite Battle",
+        page: "https://www.beyblade.jp/teaser_6th/"
+    });
+
+    stubSource({
+        name: "黑塔利亚 World★Stars",
+        page: "https://hetalia-ws.com/"
+    });
+
+    stubSource({
+        name: "结城友奈是勇者 啾噜！",
+        page: "https://yuyuyu.tv/"
+    });
+
+    stubSource({
+        name: "暴力熊",
+        page: "https://gloomy-official.com/"
+    });
+
+    stubSource({
+        name: "iii icecrin",
+        page: "https://iii-icecrin.com/"
+    });
+
+    stubSource({
+        name: "放马过来 寿司相扑",
+        page: "https://sushisumo.jp/"
+    });
+
+    stubSource({
+        name: "宇宙奇妙生物小铁君",
+        page: "https://space--academy.com/"
+    });
+
+    stubSource({
+        name: "恐龙庄日和",
+        page: "https://dinosaur-biyori.com/"
+    });
+
+    stubSource({
+        name: "变身成黑辣妹之后就和死党上床了。",
+        page: "https://kurogal.cf-anime.com/"
     });
 }
