@@ -787,9 +787,20 @@ module.exports = async function(host) {
         }
     });
 
-    stubSource({
+    await addSource({
         name: "甜梦猫 MIX!",
-        page: "https://mewkledreamy.com/"
+        guidPrefix: "mewkledreamy2",
+        url: "https://mewkledreamy.com/news/",
+        index: {
+            id: "section.news>section",
+            urlTemplate: "https://mewkledreamy.com/news/#{{id}}",
+            title: [
+                { titleAndDate: "section.news>section>h3" },
+                "{{ titleAndDate | remove_first: date }}"
+            ],
+            date: "section.news>section>h3>time",
+            body: "section.news>section"
+        }
     });
 
     stubSource({
