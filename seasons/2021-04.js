@@ -803,9 +803,17 @@ module.exports = function(host) {
         }
     });
 
-    stubSource({
+    addSource({
         name: "妖怪手表♪",
-        page: "https://www.tv-tokyo.co.jp/anime/youkai-watch2021/"
+        guidPrefix: "youkai_watch_2021",
+        url: "https://www.tv-tokyo.co.jp/anime/youkai-watch2021/news/",
+        index: {
+            id: "div#contents article>a",
+            urlTemplate: "https://www.tv-tokyo.co.jp/anime/youkai-watch2021/news/#{{id}}",
+            title: "div#contents article div.entrytit",
+            date: "div#contents article div.entrydate_in",
+            body: "div#contents article div.entrytxt"
+        }
     });
 
     stubSource({
