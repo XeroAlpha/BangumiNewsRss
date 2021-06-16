@@ -2,10 +2,10 @@
  * 2021年春季番剧新闻
  * @param { import("../lib/loaderHost") } host 加载器宿主对象
  */
-module.exports = async function(host) {
+module.exports = function(host) {
     const { prepareSeason, addSource, skipSource, stubSource, wip, dryRun, hideFromRss } = host;
 
-    await prepareSeason({
+    prepareSeason({
         id: "202104",
         name: "2021年春季",
         schedule: "every_30m",
@@ -24,7 +24,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "通灵王(第2作)",
         guidPrefix: "shamanking",
         url: "https://shamanking-project.com/news",
@@ -39,7 +39,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "伊甸星原",
         guidPrefix: "eden-zero",
         url: "https://edens-zero.net/news/",
@@ -68,7 +68,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "我的英雄学院",
         guidPrefix: "heroaca",
         url: "https://heroaca.com/news/",
@@ -85,7 +85,7 @@ module.exports = async function(host) {
         hideFromRss
     });
 
-    await addSource({
+    addSource({
         name: "王者天下3",
         guidPrefix: "kingdom",
         url: "https://kingdom-anime.com/news/",
@@ -101,7 +101,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "水果篮子",
         guidPrefix: "fruba",
         url: "https://fruba.jp/news/",
@@ -117,7 +117,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "哥斯拉 奇异点",
         guidPrefix: "godzillasp",
         url: "https://godzilla-sp.jp/news/",
@@ -133,7 +133,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "大运动会 ReSTART!",
         guidPrefix: "daiundoukai",
         url: "https://daiundoukai-restart.jp/news.php",
@@ -148,7 +148,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "佐贺偶像是传奇 Revenge",
         guidPrefix: "zombielandsaga_revenge",
         url: "https://zombielandsaga.com/news/",
@@ -163,7 +163,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "SSSS.GRIDMAN",
         comment: "SSSS动画系列共用源",
         season: "201810",
@@ -186,7 +186,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "86 -不存在的战区-",
         guidPrefix: "anime-86",
         url: "https://anime-86.com/news/",
@@ -201,7 +201,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "美少年侦探团",
         guidPrefix: "bishonen_tanteidan",
         url: "https://bishonen-tanteidan.com/news/",
@@ -216,7 +216,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "Tropical-Rouge!光之美少女",
         guidPrefix: "precure",
         url: "https://www.toei-anim.co.jp/tv/precure/news/",
@@ -249,7 +249,7 @@ module.exports = async function(host) {
 
     // TODO: 添加转生史莱姆日记（链接形式）
 
-    await addSource({
+    addSource({
         name: "影宅",
         guidPrefix: "shadowshouse",
         url: "https://shadowshouse-anime.com/news/",
@@ -264,7 +264,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "真白之音",
         guidPrefix: "mashironooto",
         url: "https://mashironooto-official.com/news/",
@@ -279,7 +279,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "再见我的克拉默",
         guidPrefix: "sayonara_cramer",
         url: "https://sayonara-cramer.com/news/",
@@ -294,7 +294,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "致不灭的你", // 《论模块化网站结构的重要性》
         guidPrefix: "fumetsunoanatae",
         page: "https://www.anime-fumetsunoanatae.com/",
@@ -352,7 +352,7 @@ module.exports = async function(host) {
         ]
     });
 
-    await addSource({
+    addSource({
         name: "不要欺负我，长瀞同学",
         guidPrefix: "nagatorosan",
         url: "https://www.nagatorosan.jp/news/",
@@ -366,7 +366,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "龙先生、想要买个家。",
         guidPrefix: "doraie",
         url: "https://doraie.com/news/",
@@ -380,7 +380,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "如果这叫爱情感觉会很恶心",
         guidPrefix: "koikimo",
         page: "https://koikimo.jp/news",
@@ -398,7 +398,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "忧国的莫里亚蒂",
         comment: "系列共用源",
         guidPrefix: "moriarty",
@@ -417,7 +417,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "东京卍复仇者",
         guidPrefix: "tokyo_revengers",
         url: "https://tokyo-revengers-anime.com/news/",
@@ -431,7 +431,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "灼热卡巴迪",
         guidPrefix: "kabaddi",
         url: "https://www.tv-tokyo.co.jp/anime/kabaddi/news/",
@@ -444,7 +444,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "席斯坦 -The Roman Fighter-",
         guidPrefix: "cestvs",
         url: "https://cestvs-anime.com/news",
@@ -468,7 +468,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "烧窑的话也要马克杯",
         guidPrefix: "yakumo",
         url: "https://yakumo-project.com/news/",
@@ -483,7 +483,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "刮掉胡子的我与捡到的女高中生",
         guidPrefix: "higehiro",
         url: "http://higehiro-anime.com/news",
@@ -506,7 +506,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "青梅竹马绝对不会输的恋爱喜剧",
         guidPrefix: "osamake",
         url: "https://osamake.com/news.html",
@@ -519,7 +519,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "持续狩猎史莱姆三百年，不知不觉就练到LV MAX",
         guidPrefix: "slime300",
         url: "https://slime300-anime.com/news/",
@@ -538,7 +538,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "战斗员派遣中!",
         guidPrefix: "kisaragi",
         url: "https://kisaragi-co.jp/news.html",
@@ -551,7 +551,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "圣女魔力无所不能",
         guidPrefix: "seijyonomaryoku",
         url: "https://seijyonomaryoku.jp/news.php",
@@ -570,7 +570,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "本田小狼与我",
         guidPrefix: "supercub",
         url: "https://supercub-anime.com/news/",
@@ -587,7 +587,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "异世界魔王与召唤少女的奴隶魔术Ω",
         guidPrefix: "isekaimaou",
         url: "https://isekaimaou-anime.com/news/",
@@ -606,7 +606,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "如果究极进化的完全沉浸RPG比现实还更像垃圾游戏的话",
         guidPrefix: "fulldiverpg",
         url: "https://fulldive-rpg.com/news.html",
@@ -621,7 +621,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "美妙世界 The Animation",
         guidPrefix: "subarashiki",
         url: "https://subarashiki-anime.jp/news",
@@ -636,7 +636,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "七骑士 -英雄的继承者-",
         guidPrefix: "sevenknights",
         url: "https://sevenknights-anime.jp/news/?page_id=1",
@@ -651,7 +651,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "BLUE REFLECTION RAY/澪",
         guidPrefix: "bluereflection_ray",
         url: "https://www.bluereflection-ray.com/news/",
@@ -666,7 +666,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "NOMAD MEGALO BOX 2",
         guidPrefix: "megalobox2",
         url: "https://megalobox2news.tumblr.com/",
@@ -682,7 +682,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "Vivy -Fluorite Eye's Song-",
         guidPrefix: "vivy-portal",
         url: "https://vivy-portal.com/news/",
@@ -697,7 +697,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "后空翻少年!!",
         guidPrefix: "bakuten",
         url: "https://bakuten-pr.com/news/",
@@ -712,7 +712,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "MARS RED",
         guidPrefix: "marsred",
         url: "https://marsred.tv/news",
@@ -727,7 +727,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "扰乱 THE PRINCESS OF SNOW AND BLOOD",
         guidPrefix: "joran",
         url: "https://joran.jp/news/",
@@ -755,7 +755,7 @@ module.exports = async function(host) {
         reason: "无新闻网页"
     });
 
-    await addSource({
+    addSource({
         name: "Fairy兰丸～让我来帮助你的心～",
         guidPrefix: "fairyran",
         url: "https://f-ran.jp/news.html",
@@ -772,7 +772,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "ODD TAXI",
         guidPrefix: "oddtaxi",
         page: "https://oddtaxi.jp/news",
@@ -787,7 +787,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "甜梦猫 MIX!",
         guidPrefix: "mewkledreamy2",
         url: "https://mewkledreamy.com/news/",

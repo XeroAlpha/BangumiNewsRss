@@ -2,10 +2,10 @@
  * 通用新闻来源
  * @param { import("../lib/loaderHost") } host 加载器宿主对象
  */
-module.exports = async function(host) {
+module.exports = function(host) {
     const { prepareSeason, addSource, wip, dryRun, hideFromRss } = host;
 
-    await prepareSeason({
+    prepareSeason({
         id: "common",
         name: "通用新闻来源",
         schedule: "every_30m",
@@ -24,7 +24,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "animateTimes",
         guidPrefix: "animatetimes",
         url: "https://www.animatetimes.com/index.php?p=1",
@@ -43,7 +43,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "AnimeAnime",
         comment: "使用 GMT +8 时区",
         guidPrefix: "animeanime",

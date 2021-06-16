@@ -2,7 +2,7 @@
  * 2021年冬季番剧新闻
  * @param { import("../lib/loaderHost") } host 加载器宿主对象
  */
-module.exports = async function(host) {
+module.exports = function(host) {
     const { mockSeason, prepareSeason, addSource } = host;
 
     mockSeason({
@@ -292,7 +292,7 @@ module.exports = async function(host) {
 
     return; // 待补完
 
-    await prepareSeason({
+    prepareSeason({
         id: "202101",
         schedule: "every_30m",
         maxCount: 20 * 59,
@@ -307,7 +307,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "工作细胞!!",
         guidPrefix: "hataraku-saibou",
         url: "https://hataraku-saibou.com/news_gekijou/",
@@ -319,7 +319,7 @@ module.exports = async function(host) {
         }
     });
 
-    await addSource({
+    addSource({
         name: "工作细胞BLACK",
         guidPrefix: "saibou-black",
         url: "https://saibou-black.com/news/",

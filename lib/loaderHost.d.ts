@@ -456,16 +456,22 @@ interface ShortcutOptions {
 }
 
 /**
+ * 以任务形式调用 `console.log(...data)`。
+ * @param data 要打印至控制台的内容
+ */
+export function log(...data: any[]): void;
+
+/**
  * 创建或更新每个季度共用的 Agent 和 Scenario。
  * @param season 季度参数
  */
-export function prepareSeason(season: SeasonOptions): Promise<void>;
+export function prepareSeason(season: SeasonOptions): void;
 
 /**
  * 创建或更新每个新闻来源使用的 Agent。
  * @param source 新闻来源参数
  */
-export function addSource(source: SourceOptions): Promise<void>;
+export function addSource(source: SourceOptions): void;
 
 /**
  * 标记某个新闻来源为“跳过”。

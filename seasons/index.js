@@ -2,25 +2,25 @@
  * RSS 索引
  * @param { import("../lib/loaderHost") } host 加载器宿主对象
  */
-module.exports = async function(host) {
+module.exports = function(host) {
     // 2021年春季番剧新闻
-    console.log("Loading 2021-04");
-    await require("./2021-04")(host);
+    host.log("Loading 2021-04");
+    require("./2021-04")(host);
 
     // 2021年冬季番剧新闻（补全中）
-    console.log("Loading 2021-01");
-    await require("./2021-01")(host);
+    host.log("Loading 2021-01");
+    require("./2021-01")(host);
 
     // 旧新闻来源
     require("./older")(host);
 
     // 通用
-    console.log("Loading Common");
-    await require("./common")(host);
+    host.log("Loading Common");
+    require("./common")(host);
 
     // 番剧列表
-    console.log("Loading BangumiList");
-    await require("./bangumiList")(host);
+    host.log("Loading BangumiList");
+    require("./bangumiList")(host);
 
     host.defineShortcut({
         id: "current",

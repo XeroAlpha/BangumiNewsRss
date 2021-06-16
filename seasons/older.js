@@ -2,7 +2,7 @@
  * 旧新闻来源
  * @param { import("../lib/loaderHost") } host 加载器宿主对象
  */
- module.exports = async function(host) {
+ module.exports = function(host) {
     const { mockSeason } = host;
 
     mockSeason({
