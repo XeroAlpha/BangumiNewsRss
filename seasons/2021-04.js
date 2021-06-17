@@ -816,9 +816,19 @@ module.exports = function(host) {
         }
     });
 
-    stubSource({
-        name: "更多!认真地不认真的怪侠佐罗利 第2系列",
-        page: "http://www.zorori.jp/"
+    addSource({
+        name: "更多!认真地不认真的怪侠佐罗利",
+        season: "202004",
+        url: "http://www.zorori.jp/news/",
+        index: {
+            url: ["dl.newslist dd>a", "{{ url | to_uri: 'http://www.zorori.jp/news/' }}"],
+            idTemplate: "{{url}}",
+            title: "dl.newslist dd>a",
+            date: "dl.newslist dt"
+        },
+        description: {
+            body: "div.txt"
+        }
     });
 
     stubSource({
