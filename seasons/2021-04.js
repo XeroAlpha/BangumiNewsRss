@@ -831,9 +831,19 @@ module.exports = function(host) {
         }
     });
 
-    stubSource({
+    addSource({
         name: "SD高达世界 群英集",
-        page: "https://sd-gundam-world.net/heroes/"
+        guidPrefix: "sd_gundam_world",
+        url: "https://sd-gundam-world.net/heroes/news.php",
+        index: {
+            url: ["ul.c-rows li.c-card a.c-card__link", "https://sd-gundam-world.net/heroes/{{url}}"],
+            idTemplate: "{{url}}",
+            title: "ul.c-rows li.c-card p.c-card__tit",
+            date: "ul.c-rows li.c-card time.c-card__tag"
+        },
+        description: {
+            body: "div.c-article__body"
+        }
     });
 
     stubSource({
