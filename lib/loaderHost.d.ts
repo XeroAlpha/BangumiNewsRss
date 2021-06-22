@@ -151,9 +151,9 @@ interface SourceOptions {
     dryRun?: boolean;
 
     /**
-     * 测试报告的路径。指定则表示只运行测试并输出报告而不实际创建 Agent。
+     * 指示是否只运行测试并输出报告而不实际创建 Agent。
      */
-    testAndReport?: string;
+    testAndReport?: boolean;
 
     /**
      * 指示在新闻来源 Agent 已存在时，是否强制更新新闻来源参数。  
@@ -521,3 +521,8 @@ export const wip = true;
  * 预定义常量，表示启用 `hideFromRss` 选项。
  */
 export const hideFromRss = true;
+
+/**
+ * 预定义常量，表示启用 `testAndReport` 选项。
+ */
+export const testAndReport = true;

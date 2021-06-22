@@ -3,7 +3,7 @@
  * @param { import("../lib/loaderHost") } host 加载器宿主对象
  */
 module.exports = function(host) {
-    const { prepareSeason, addSource, skipSource, stubSource, wip, dryRun, hideFromRss } = host;
+    const { prepareSeason, addSource, skipSource, stubSource, wip, dryRun, hideFromRss, testAndReport } = host;
 
     prepareSeason({
         id: "202104",
@@ -861,9 +861,19 @@ module.exports = function(host) {
         }
     });
 
-    stubSource({
+    addSource({
         name: "新干线变形机器人 SHINKALION Z",
-        page: "https://www.shinkalion.com/"
+        guidPrefix: "shinkalion",
+        url: "https://www.shinkalion.com/news/",
+        index: {
+            url: ["div#wrapNews article>h3>a", "https://www.shinkalion.com{{url}}"],
+            idTemplate: "{{url}}",
+            title: "div#wrapNews article>h3>a",
+            date: "div#wrapNews article>div.datetime>p>time"
+        },
+        description: {
+            body: "div.templateDetail"
+        }
     });
 
     stubSource({

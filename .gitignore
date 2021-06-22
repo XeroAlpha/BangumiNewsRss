@@ -105,3 +105,6 @@ dist
 
 # Site Config
 /lib/conf.json
+
+# Source Report
+reports
