@@ -846,9 +846,19 @@ module.exports = function(host) {
         }
     });
 
-    stubSource({
-        name: "卡片战斗先导者 overDress SEASON1",
-        page: "https://anime.cf-vanguard.com/overdress/"
+    addSource({
+        name: "卡片战斗先导者 overDress",
+        guidPrefix: "cf_vanguard_overdress",
+        url: "https://anime.cf-vanguard.com/overdress/news/",
+        index: {
+            url: "div.nws-List article>a",
+            idTemplate: "{{url}}",
+            title: "div.nws-List article span.date",
+            date: "div.nws-List article p.title"
+        },
+        description: {
+            body: "div.body"
+        }
     });
 
     stubSource({
