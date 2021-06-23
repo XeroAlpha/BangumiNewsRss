@@ -890,9 +890,22 @@ module.exports = function(host) {
         }
     });
 
-    stubSource({
+    addSource({
         name: "MAZICA PARTY",
-        page: "https://www.tv-osaka.co.jp/mazicaparty/staff.html"
+        guidPrefix: "mazicaparty",
+        url: "https://www.tv-osaka.co.jp/ip4/mazicaparty/",
+        index: {
+            url: "ul.article__list li.mazica-news-col a.mazica-news-col-inner",
+            idTemplate: "{{url}}",
+            title: [
+                { titleAndDate: "ul.article__list li.mazica-news-col p.mazica-news-title" },
+                "{{ titleAndDate | remove_first: date }}"
+            ],
+            date: "ul.article__list li.mazica-news-col p.mazica-news-title>time"
+        },
+        description: {
+            body: "article.article>div.container>div.article__body"
+        }
     });
 
     stubSource({
