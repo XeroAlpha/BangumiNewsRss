@@ -876,9 +876,18 @@ module.exports = function(host) {
         }
     });
 
-    stubSource({
-        name: "决斗大师 KING!",
-        page: "https://www.tv-tokyo.co.jp/anime/dm_king"
+    addSource({
+        name: "决斗大师 KING",
+        season: "202004",
+        guidPrefix: "dm_king",
+        url: "https://www.tv-tokyo.co.jp/anime/dm_king/news/index.html",
+        index: {
+            id: "div#contents article>a",
+            urlTemplate: "https://www.tv-tokyo.co.jp/anime/dm_king/news/#{{id}}",
+            title: "div#contents article div.entrytit",
+            date: "div#contents article div.entrydate",
+            body: "div#contents article div.entrytxt"
+        }
     });
 
     stubSource({
