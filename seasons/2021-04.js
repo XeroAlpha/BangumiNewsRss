@@ -165,7 +165,7 @@ module.exports = function(host) {
 
     addSource({
         name: "SSSS.GRIDMAN",
-        comment: "SSSS动画系列共用源",
+        comment: "SSSS动画系列共用源：SSSS.DYNAZENON",
         season: "201810",
         guidPrefix: "gridman",
         url: "https://gridman.net/news/",
@@ -929,9 +929,21 @@ module.exports = function(host) {
         }
     });
 
-    stubSource({
-        name: "结城友奈是勇者 啾噜！",
-        page: "https://yuyuyu.tv/"
+    addSource({
+        name: "结城友奈是勇者",
+        comment: "系列共用源：结城友奈是勇者 啾噜！",
+        season: "201410",
+        guidPrefix: "yuyuyu",
+        url: "https://yuyuyu.tv/news/",
+        index: {
+            url: ["section.c-entry-list article.c-entry-item a.c-entry-item__link", "https://yuyuyu.tv{{url}}"],
+            idTemplate: "{{url}}",
+            title: "section.c-entry-list article.c-entry-item h1.c-entry-item__title",
+            date: "section.c-entry-list article.c-entry-item span.c-entry-date"
+        },
+        description: {
+            body: "div.c-entry-body"
+        }
     });
 
     stubSource({
