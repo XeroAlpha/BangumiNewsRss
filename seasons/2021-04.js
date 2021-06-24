@@ -908,14 +908,25 @@ module.exports = function(host) {
         }
     });
 
-    stubSource({
+    skipSource({
         name: "战斗陀螺BURST Dynamite Battle",
-        page: "https://www.beyblade.jp/teaser_6th/"
+        page: "https://www.beyblade.jp/teaser_6th/",
+        reason: "无新闻网页"
     });
 
-    stubSource({
+    addSource({
         name: "黑塔利亚 World★Stars",
-        page: "https://hetalia-ws.com/"
+        guidPrefix: "hetalia_ws",
+        url: "https://hetalia-ws.com/news/",
+        index: {
+            url: "div.news_inner dl a",
+            idTemplate: "{{url}}",
+            title: "div.news_inner dl a",
+            date: "div.news_inner dl dt"
+        },
+        description: {
+            body: "div.newsContents"
+        }
     });
 
     stubSource({
