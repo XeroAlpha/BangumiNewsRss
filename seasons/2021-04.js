@@ -745,13 +745,13 @@ module.exports = function(host) {
 
     skipSource({
         name: "武士弥助",
-        url: "https://www.netflix.com/title/80990863",
+        page: "https://www.netflix.com/title/80990863",
         reason: "无新闻网页"
     });
 
     skipSource({
         name: "伊甸",
-        url: "https://www.netflix.com/title/80992783",
+        page: "https://www.netflix.com/title/80992783",
         reason: "无新闻网页"
     });
 
@@ -946,9 +946,17 @@ module.exports = function(host) {
         }
     });
 
-    stubSource({
+    addSource({
         name: "暴力熊",
-        page: "https://gloomy-official.com/"
+        guidPrefix: "gloomy",
+        url: "https://gloomy-official.com/news.html",
+        index: {
+            id: "div.inner div.news_box",
+            urlTemplate: "https://gloomy-official.com/news.html#{{id}}",
+            title: "div.inner div.news_box p.n_head",
+            date: "div.inner div.news_box p.date",
+            body: "div.inner div.news_box div.news_content"
+        }
     });
 
     stubSource({
@@ -971,8 +979,9 @@ module.exports = function(host) {
         page: "https://dinosaur-biyori.com/"
     });
 
-    stubSource({
+    skipSource({
         name: "变身成黑辣妹之后就和死党上床了。",
-        page: "https://kurogal.cf-anime.com/"
+        page: "https://kurogal.cf-anime.com/",
+        reason: "R18不收录"
     });
 }
