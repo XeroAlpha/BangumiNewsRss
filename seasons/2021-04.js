@@ -9,7 +9,7 @@ module.exports = function(host) {
         id: "202104",
         name: "2021年春季",
         schedule: "every_30m",
-        status: "正在收集来源",
+        status: "来源收录已完成",
         maxCount: 20 * 63,
         scenarioLink: "https://rss.projectxero.top/scenarios/18/export.json",
         rssLink: "https://rss.projectxero.top/bangumi/2021-04.xml",
@@ -997,9 +997,19 @@ module.exports = function(host) {
         reason: "官网不存在"
     });
 
-    stubSource({
+    addSource({
         name: "恐龙庄日和",
-        page: "https://dinosaur-biyori.com/"
+        guidPrefix: "dinosaur_biyori",
+        url: "https://dinosaur-biyori.com/news/",
+        index: {
+            url: ["ul.news_list li>a", "{{ url | to_uri: 'https://dinosaur-biyori.com/news/' }}"],
+            idTemplate: "{{url}}",
+            title: "ul.news_list li p.news_title",
+            date: "ul.news_list li p.news_date"
+        },
+        description: {
+            body: "div.news_text"
+        }
     });
 
     skipSource({
