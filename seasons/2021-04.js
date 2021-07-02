@@ -974,14 +974,27 @@ module.exports = function(host) {
         }
     });
 
-    stubSource({
+    addSource({
         name: "放马过来 寿司相扑",
-        page: "https://sushisumo.jp/"
+        guidPrefix: "sushisumo",
+        url: "https://sushisumo.jp/news/",
+        index: {
+            url: ["ul#list li>a", "{{ url | to_uri: 'https://sushisumo.jp/news/' }}"],
+            idTemplate: "{{url}}",
+            title: "ul#list li div.text>p",
+            date: ["ul#list li div.text>time", "{{ date | regex_replace: '(\\d+)年(\\d+)月(\\d+)日\(.+\)', '\\1.\\2.\\3' }}"]
+        },
+        getExtractor: function(url) {
+            if (url.startsWith("https://sushisumo.jp/news/")) {
+                return { bodySelector: "div#detail>div.text" };
+            }
+        }
     });
 
-    stubSource({
+    skipSource({
         name: "宇宙奇妙生物小铁君",
-        page: "https://space--academy.com/"
+        page: "https://space--academy.com/",
+        reason: "官网不存在"
     });
 
     stubSource({
