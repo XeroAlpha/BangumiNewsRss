@@ -959,9 +959,19 @@ module.exports = function(host) {
         }
     });
 
-    stubSource({
+    addSource({
         name: "iii icecrin",
-        page: "https://iii-icecrin.com/"
+        guidPrefix: "iii_icecrin",
+        url: "https://iii-icecrin.com/news/",
+        index: {
+            url: ["ul.p-news__list li.p-news__item a.p-news_data__link", "{{ url | to_uri: 'https://iii-icecrin.com/news/' }}"],
+            idTemplate: "{{url}}",
+            title: "ul.p-news__list li.p-news__item div.p-news_data__title",
+            date: "ul.p-news__list li.p-news__item span.p-news_data__date-text"
+        },
+        description: {
+            body: "div.p-news_single__inner"
+        }
     });
 
     stubSource({
