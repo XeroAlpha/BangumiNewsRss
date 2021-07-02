@@ -119,7 +119,7 @@
         {% assign totalCount = completeCount | plus: season.pendingSources.length %}
         {% assign totalCountPercent = totalCount | times: 0.01 %}
         {% assign percent = completeCount | divided_by: totalCountPercent %}
-        进度：{{ percent | round: 1 }}%（{{ season.sources.length }} 已包含，{{ season.pendingSources.length }} 未完成，共 {{ totalCount }} 个来源）
+        进度：{{ percent | round: 1 }}%（{{ season.sources.length }} 已包含，{{ season.pendingSources.length }} 待完成，共 {{ totalCount }} 个来源）
       </p>
       <p>包含番剧：</p>
       <ul>

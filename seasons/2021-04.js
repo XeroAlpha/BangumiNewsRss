@@ -1017,4 +1017,19 @@ module.exports = function(host) {
         page: "https://kurogal.cf-anime.com/",
         reason: "R18不收录"
     });
+
+    addSource({
+        name: "终末的女武神",
+        guidPrefix: "ragnarok",
+        url: "https://ragnarok-official.com/news/",
+        index: {
+            url: "div.news--lineup div.md-news__block a.linkwrap",
+            idTemplate: "{{url}}",
+            title: "div.news--lineup div.md-news__block div.txt>dl>dd>h2",
+            date: "div.news--lineup div.md-news__block div.txt>dl>dt"
+        },
+        description: {
+            body: "div.news--detail--cont"
+        }
+    });
 }

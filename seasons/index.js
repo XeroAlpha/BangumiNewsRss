@@ -3,6 +3,10 @@
  * @param { import("../lib/loaderHost") } host 加载器宿主对象
  */
 module.exports = function(host) {
+    // 2021夏季番剧新闻
+    host.log("Loading 2021-07");
+    require("./2021-07")(host);
+
     // 2021年春季番剧新闻
     host.log("Loading 2021-04");
     require("./2021-04")(host);
@@ -27,7 +31,7 @@ module.exports = function(host) {
         name: "本季",
         rssLink: "https://rss.projectxero.top/bangumi/current.xml",
         viewerLink: "https://rss.projectxero.top/view/?src=bangumi%2Fcurrent.xml",
-        season: "202104"
+        season: "202107"
     });
 
     // host.defineShortcut({
@@ -43,6 +47,6 @@ module.exports = function(host) {
         name: "上季",
         rssLink: "https://rss.projectxero.top/bangumi/prev.xml",
         viewerLink: "https://rss.projectxero.top/view/?src=bangumi%2Fprev.xml",
-        season: "202101"
+        season: "202104"
     });
 }

@@ -9,11 +9,10 @@ module.exports = function(host) {
         id: "202101",
         name: "2021年冬季",
         status: "来源收录已完成",
-        schedule: "every_30m",
+        schedule: "1am",
         scenarioLink: "https://rss.projectxero.top/scenarios/6/export.json",
         rssLink: "https://rss.projectxero.top/bangumi/2021-01.xml",
         viewerLink: "https://rss.projectxero.top/view/?src=bangumi%2F2021-01.xml",
-        schedule: "every_30m",
         sources: [
             {
                 name: "工作细胞!!",
