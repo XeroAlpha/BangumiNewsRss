@@ -24,9 +24,19 @@
         }
     });
 
-    stubSource({
+    addSource({
         name: "LoveLive!Superstar!!",
-        page: "https://www.lovelive-anime.jp/yuigaoka/news/"
+        guidPrefix: "llsuperstar",
+        url: "https://www.lovelive-anime.jp/yuigaoka/news/",
+        index: {
+            url: ["ul.listbox>li>div>a", "{{ url | to_uri: 'https://www.lovelive-anime.jp/yuigaoka/news/' }}"],
+            idTemplate: "{{url}}",
+            title: "ul.listbox>li>div>a>p.title",
+            date: "ul.listbox>li>div>a>p.date",
+        },
+        description: {
+            body: "div.txt"
+        }
     });
     
     stubSource({
