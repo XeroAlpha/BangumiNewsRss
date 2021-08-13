@@ -95,9 +95,19 @@
         }
     });
     
-    stubSource({
+    addSource({
         name: "桃子男孩渡海而来",
-        page: "https://peachboyriverside.com/news/"
+        guidPrefix: "peachboyriverside",
+        url: "https://peachboyriverside.com/news/",
+        index: {
+            url: "ul.md--articleblock li a.linkwrap",
+            idTemplate: "{{url}}",
+            title: "ul.md--articleblock li h4.ttl",
+            date: "ul.md--articleblock li div.inner>dl>dt>h3"
+        },
+        description: {
+            body: "main.md--articlewrap--main"
+        }
     });
     
     stubSource({
