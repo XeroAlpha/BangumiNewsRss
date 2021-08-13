@@ -78,11 +78,21 @@
         }
     });
     
-    stubSource({
+    addSource({
         name: "魔法纪录 魔法少女小圆外传",
+        guidPrefix: "magireco",
         season: "202001",
-        page: "https://anime.magireco.com/news/",
-        comment: "系列共用源：魔法纪录 魔法少女小圆外传 2nd SEASON -觉醒前夜-"
+        comment: "系列共用源：魔法纪录 魔法少女小圆外传 2nd SEASON -觉醒前夜-",
+        url: "https://anime.magireco.com/news/",
+        index: {
+            url: ["div.news_list>ul li>a", "{{ url | to_uri: 'https://anime.magireco.com/news/' }}"],
+            idTemplate: "{{url}}",
+            title: "div.news_list>ul li p.news_ttl",
+            date: "div.news_list>ul li p.news_date"
+        },
+        description: {
+            body: "div.news_text"
+        }
     });
     
     stubSource({
