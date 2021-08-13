@@ -61,11 +61,21 @@
         }
     });
     
-    stubSource({
+    addSource({
         name: "小林家的龙女仆",
+        guidPrefix: "maidragon",
         season: "201701",
-        page: "https://maidragon.jp/news/",
-        comment: "系列共用源：小林家的龙女仆S"
+        comment: "系列共用源：小林家的龙女仆S",
+        url: "https://maidragon.jp/news/",
+        index: {
+            url: ["section.news-list article.c-news-item a.c-news-item__link", "https://maidragon.jp{{url}}"],
+            idTemplate: "{{url}}",
+            title: "section.news-list article.c-news-item span.c-news-item__title",
+            date: "section.news-list article.c-news-item span.c-news-item__date"
+        },
+        description: {
+            body: "section.c-article-body"
+        }
     });
     
     stubSource({
