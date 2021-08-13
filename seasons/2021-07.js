@@ -39,11 +39,26 @@
         }
     });
     
-    stubSource({
+    addSource({
         name: "寒蝉鸣泣之时(第2作)",
+        guidPrefix: "higurashianime",
         season: "202010",
-        page: "https://higurashianime.com/news.html",
-        comment: "系列共用源：寒蝉鸣泣之时 卒"
+        comment: "系列共用源：寒蝉鸣泣之时 卒",
+        url: "https://higurashianime.com/news.html",
+        index: {
+            url: ["div.newsPaging article a.title_link", "https://higurashianime.com/{{url}}"],
+            idTemplate: "{{url}}",
+            title: "div.newsPaging article div.title",
+            date: [{
+                year: "div.newsPaging article div.year",
+                day: "div.newsPaging article div.day"
+            }, "{{year}}.{{day}}"]
+        },
+        getExtractor: function(url) {
+            if (url.startsWith("https://higurashianime.com/news/")) {
+                return { bodySelector: "div.kiji_wrap" };
+            }
+        }
     });
     
     stubSource({
