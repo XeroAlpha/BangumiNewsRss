@@ -9,7 +9,7 @@
   "author": "ProjectXero",
   "license": "MIT",
   "dependencies": {
-    "cheerio": "*",
+    "cheerio": "^1.0.0-rc.10",
     "got": "^11.8.2",
     "liquidjs": "^9.25.0",
     "tough-cookie": "^4.0.0",
