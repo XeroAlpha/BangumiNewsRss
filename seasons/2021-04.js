@@ -10,7 +10,7 @@ module.exports = function(host) {
         name: "2021年春季",
         schedule: "every_30m",
         status: "来源收录已完成",
-        maxCount: 20 * 63,
+        maxCount: 20 * 65,
         scenarioLink: "https://rss.projectxero.top/scenarios/18/export.json",
         rssLink: "https://rss.projectxero.top/bangumi/2021-04.xml",
         viewerLink: "https://rss.projectxero.top/view/?src=bangumi%2F2021-04.xml",
@@ -73,6 +73,7 @@ module.exports = function(host) {
         guidPrefix: "heroaca",
         url: "https://heroaca.com/news/",
         season: "201604",
+        comment: "系列共用源：我的英雄学院 5期",
         index: {
             title: "ul.newsLists li.cBorderWrap_w5 p.newsList__title",
             date: "ul.newsLists li.cBorderWrap_w5 p.newsList__date>time",
@@ -86,10 +87,11 @@ module.exports = function(host) {
     });
 
     addSource({
-        name: "王者天下3",
+        name: "王者天下",
         guidPrefix: "kingdom",
         url: "https://kingdom-anime.com/news/",
         season: "202004",
+        comment: "系列共用源：王者天下3",
         index: {
             url: ["ul#news_list li>a", "https://kingdom-anime.com/news/{{url}}"],
             idTemplate: "{{url}}",
@@ -106,6 +108,7 @@ module.exports = function(host) {
         guidPrefix: "fruba",
         url: "https://fruba.jp/news/",
         season: "201904",
+        comment: "系列共用源：水果篮子 The Final",
         index: {
             url: ["ul.news_archive__list li.news_archive__list__item>a", "https://fruba.jp/news/{{url}}"],
             idTemplate: "{{url}}",
@@ -217,37 +220,22 @@ module.exports = function(host) {
     });
 
     addSource({
-        name: "Tropical-Rouge!光之美少女",
-        guidPrefix: "precure",
-        url: "https://www.toei-anim.co.jp/tv/precure/news/",
+        name: "关于我转生变成史莱姆这档事",
+        season: "201810",
+        includedSeasons: [ "202101" ],
+        comment: "系列共用源：转生史莱姆日记 关于我转生变成史莱姆这档事",
+        url: "https://www.ten-sura.com/news/anime/",
+        guidPrefix: "tensura",
         index: {
-            url: "ul.m-list-topics li .topics-link",
-            title: "ul.m-list-topics li .topics-link>dl>dd",
-            dateAndCategory: "ul.m-list-topics li .topics-link>dl>dt",
-            category: "ul.m-list-topics li .topics-link>dl>dt>span.link-cat"
+            url: "div.news-list a.news-list-item-link",
+            idTemplate: "{{url}}",
+            title: "div.news-list h3.title",
+            date: { css: "div.news-list time", value: "@datetime" }
         },
-        getExtractor: function(url, payload) {
-            /**
-             * @type { import("../lib/loaderHost").ExtractorGeneratorResult }
-             */
-            let result = { id: url };
-            result.date = payload.dateAndCategory.replace(payload.category, "");
-            if (url.startsWith("/tv/precure/news/")) {
-                result.url = "https://www.toei-anim.co.jp" + url;
-                result.bodySelector = "div.m-box-entry";
-            } else if (url.startsWith("http")) {
-                result.url = url;
-            } else if (url != "") {
-                result.url = "https://www.toei-anim.co.jp" + url;
-            } else {
-                result.id = payload.title;
-                result.url = "https://www.toei-anim.co.jp/tv/precure/news/#" + encodeURIComponent(payload.title);
-            }
-            return result;
+        description: {
+            body: "div.main-content-body"
         }
     });
-
-    // TODO: 添加转生史莱姆日记（链接形式）
 
     addSource({
         name: "影宅",
@@ -366,6 +354,18 @@ module.exports = function(host) {
         }
     });
 
+    skipSource({
+        name: "入间同学入魔了 第2系列",
+        page: "https://www6.nhk.or.jp/anime/program/detail.html?i=iruma",
+        reason: "NHK来源待处理"
+    });
+
+    skipSource({
+        name: "极主夫道",
+        page: "https://www.netflix.com/title/81261669",
+        reason: "无新闻网页"
+    });
+
     addSource({
         name: "龙先生、想要买个家。",
         guidPrefix: "doraie",
@@ -400,7 +400,7 @@ module.exports = function(host) {
 
     addSource({
         name: "忧国的莫里亚蒂",
-        comment: "系列共用源",
+        comment: "系列共用源：忧国的莫里亚蒂(第2季度)",
         guidPrefix: "moriarty",
         url: "https://moriarty-anime.com/news",
         season: "202010",
@@ -774,6 +774,7 @@ module.exports = function(host) {
 
     addSource({
         name: "ODD TAXI",
+        comment: "别名：奇巧计程车",
         guidPrefix: "oddtaxi",
         page: "https://oddtaxi.jp/news",
         url: "https://oddtaxi.jp/wp-json/oddtaxi/init",
@@ -819,6 +820,7 @@ module.exports = function(host) {
     addSource({
         name: "更多!认真地不认真的怪侠佐罗利",
         season: "202004",
+        comment: "系列共用源：更多!认真地不认真的怪侠佐罗利 第2系列",
         url: "http://www.zorori.jp/news/",
         index: {
             url: ["dl.newslist dd>a", "{{ url | to_uri: 'http://www.zorori.jp/news/' }}"],
@@ -848,6 +850,7 @@ module.exports = function(host) {
 
     addSource({
         name: "卡片战斗先导者 overDress",
+        comment: "别名：卡片战斗先导者 overDress SEASON1",
         guidPrefix: "cf_vanguard_overdress",
         url: "https://anime.cf-vanguard.com/overdress/news/",
         index: {
@@ -863,6 +866,7 @@ module.exports = function(host) {
 
     addSource({
         name: "新干线变形机器人 SHINKALION Z",
+        comment: "别名：新干线变形机器人 SHINKALION Z THE ANIMATION",
         guidPrefix: "shinkalion",
         url: "https://www.shinkalion.com/news/",
         index: {
@@ -1016,6 +1020,21 @@ module.exports = function(host) {
         name: "变身成黑辣妹之后就和死党上床了。",
         page: "https://kurogal.cf-anime.com/",
         reason: "R18不收录"
+    });
+    
+    addSource({
+        name: "Pretty All Friends Selection",
+        url: "https://www.tv-tokyo.co.jp/anime/pretty10th/news/index.html",
+        guidPrefix: "pretty10th",
+        index: {
+            id: "div#contents>a",
+            title: "div#contents>div.kijibox>div.kijitit",
+            date: [
+                "div#contents>div.kijibox>div.kijidate>p",
+                "{{ date | regex_replace: '(\\d+)年(\\d+)月(\\d+)日', '\\1.\\2.\\3' }}"
+            ],
+            body: "div#contents>div.kijibox>div.kijitxt"
+        }
     });
 
     addSource({
