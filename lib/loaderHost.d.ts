@@ -81,8 +81,15 @@ interface SourceOptions {
 
     /**
      * 所属季度列表，表示这一新闻来源同时包含在其他季度的描述文件中。
+     * 
+     * 只需填写在执行顺序之后的季度ID。
      */
     includedSeasons?: Array<string>;
+
+    /**
+     * 此来源的注释。
+     */
+    comment: string;
 
     /**
      * RSS 新闻条目的唯一标识符前缀

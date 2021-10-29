@@ -1,0 +1,151 @@
+{
+    "准备季度": {
+        "scope": "javascript",
+        "prefix": "prepareSeason",
+        "body": [
+            "prepareSeason({",
+            "\tid: \"20${1:xxxx}\",",
+            "\tname: \"20${2:xx}年${3:x}季\",",
+            "\tschedule: \"every_30m\",",
+            "\tstatus: \"来源收录进行中\",",
+            "\tmaxCount: 20 * ${4:番剧数},",
+            "\tscenarioLink: \"\",",
+            "\trssLink: \"\",",
+            "\tviewerLink: \"\",",
+            "\trss: {",
+            "\t\t$0",
+            "\t}",
+            "});",
+        ]
+    },
+    "添加聚合式新闻来源": {
+        "scope": "javascript",
+        "prefix": "addSource",
+        "body": [
+            "addSource({",
+            "\tname: \"${1:番剧名}\",",
+            "\t$0season: \"\",",
+            "\tcomment: \"系列共用源：\",",
+            "\turl: \"${2:URL}\",",
+            "\tguidPrefix: \"$3\",",
+            "\tindex: {",
+            "\t\tid: \"$4\",",
+            "\t\ttitle: \"$5\",",
+            "\t\tdate: \"$6\",",
+            "\t\tbody: \"$7\"",
+            "\t}",
+            "});"
+        ]
+    },
+    "添加分离式新闻来源": {
+        "scope": "javascript",
+        "prefix": "addSource",
+        "body": [
+            "addSource({",
+            "\tname: \"${1:番剧名}\",",
+            "\t$0season: \"\",",
+            "\tcomment: \"系列共用源：\",",
+            "\turl: \"${2:URL}\",",
+            "\tguidPrefix: \"$3\",",
+            "\tindex: {",
+            "\t\turl: \"$4\",",
+            "\t\tidTemplate: \"{{url}}\",",
+            "\t\ttitle: \"$5\",",
+            "\t\tdate: \"$6\"",
+            "\t},",
+            "\tdescription: {",
+            "\t\tbody: \"$7\"",
+            "\t}",
+            "});"
+        ]
+    },
+    "添加带正文解析器分离式新闻来源": {
+        "scope": "javascript",
+        "prefix": "addSource",
+        "body": [
+            "addSource({",
+            "\tname: \"${1:番剧名}\",",
+            "\tseason: \"\",",
+            "\tcomment: \"系列共用源：\",",
+            "\turl: \"${2:URL}\",",
+            "\tguidPrefix: \"$3\",",
+            "\tindex: {",
+            "\t\turl: \"$4\",",
+            "\t\tidTemplate: \"{{url}}\",",
+            "\t\ttitle: \"$5\",",
+            "\t\tdate: \"$6\"",
+            "\t},",
+            "\tgetExtractor: function(url) {",
+            "\t\t$0",
+            "\t}",
+            "});"
+        ]
+    },
+    "添加新闻来源占位符": {
+        "scope": "javascript",
+        "prefix": "stubSource",
+        "body": [
+            "stubSource({",
+            "\tname: \"${1:番剧名}\",",
+            "\tpage: \"$2\",",
+            "\tcomment: \"$0系列共用源：\"",
+            "});"
+        ]
+    },
+    "添加不收录新闻来源说明": {
+        "scope": "javascript",
+        "prefix": "skipSource",
+        "body": [
+            "skipSource({",
+            "\tname: \"${1:番剧名}\",",
+            "\tpage: \"$2\",",
+            "\treason: \"$0\"",
+            "});"
+        ]
+    },
+    "转换为聚合式新闻来源": {
+        "scope": "javascript",
+        "prefix": "index",
+        "body": [
+            "guidPrefix: \"$5\",",
+            "index: {",
+            "\tid: \"$1\",",
+            "\ttitle: \"$2\",",
+            "\tdate: \"$3\",",
+            "\tbody: \"$4\"",
+            "}$0"
+        ]
+    },
+    "转换为分离式新闻来源": {
+        "scope": "javascript",
+        "prefix": "index",
+        "body": [
+            "guidPrefix: \"$5\",",
+            "index: {",
+            "\turl: \"$1\",",
+            "\tidTemplate: \"{{url}}\",",
+            "\ttitle: \"$2\",",
+            "\tdate: \"$3\"",
+            "},",
+            "description: {",
+            "\tbody: \"$4\"",
+            "}$0"
+        ]
+    },
+    "转换为带正文解析器分离式新闻来源": {
+        "scope": "javascript",
+        "prefix": "index",
+        "body": [
+            "guidPrefix: \"$4\",",
+            "index: {",
+            "\turl: \"$1\",",
+            "\tidTemplate: \"{{url}}\",",
+            "\ttitle: \"$2\",",
+            "\tdate: \"$3\"",
+            "},",
+            "getExtractor: function(url) {",
+            "\t$0",
+            "}"
+        ]
+    },
+}
