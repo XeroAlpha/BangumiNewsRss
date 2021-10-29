@@ -10,7 +10,7 @@
         name: "2021年夏季",
         schedule: "every_30m",
         status: "来源收录进行中",
-        maxCount: 20 * 43,
+        maxCount: 20 * 44,
         scenarioLink: "https://rss.projectxero.top/scenarios/22/export.json",
         rssLink: "https://rss.projectxero.top/bangumi/2021-07.xml",
         viewerLink: "https://rss.projectxero.top/view/?src=bangumi%2F2021-07.xml",
@@ -110,19 +110,41 @@
         }
     });
     
-    stubSource({
+    addSource({
         name: "平稳世代的韦驮天们",
-        page: "https://news.noitamina.tv/idaten/"
+        url: "https://news.noitamina.tv/idaten/",
+        guidPrefix: "idaten",
+        index: {
+            url: "ul.modListNews li>a",
+            idTemplate: "{{url}}",
+            title: "ul.modListNews li>a>div.unitText>h3",
+            date: "ul.modListNews li>a>p.date>time"
+        },
+        description: {
+            body: "article.modArticle"
+        }
+    });
+    
+    addSource({
+        name: "关于我转生变成史莱姆这档事",
+        season: "201810",
+        includedSeasons: [ "202101", "202104" ],
+        comment: "系列共用源：关于我转生变成史莱姆这档事 第2期第2部",
+        url: "https://www.ten-sura.com/news/anime/",
+        guidPrefix: "tensura",
+        index: {
+            url: "div.news-list a.news-list-item-link",
+            idTemplate: "{{url}}",
+            title: "div.news-list h3.title",
+            date: { css: "div.news-list time", value: "@datetime" }
+        },
+        description: {
+            body: "div.main-content-body"
+        }
     });
     
     stubSource({
-        name: "关于我转生变成史莱姆这档事 第2期第2部",
-        page: "",
-        comment: "需要解决连续番剧的问题"
-    });
-    
-    stubSource({
-        name: "白砂的水族馆",
+        name: "白沙的水族馆",
         page: "https://aquatope-anime.com/news/"
     });
     
@@ -134,6 +156,11 @@
     stubSource({
         name: "盖塔机器人 ARC",
         page: "https://getterrobot-arc.com/news/"
+    });
+    
+    stubSource({
+        name: "范马刃牙",
+        page: "https://baki-anime.jp/hb/news"
     });
     
     stubSource({
@@ -172,17 +199,13 @@
     });
     
     stubSource({
-        name: "暗芝居 第9期",
-        page: "https://www.tv-tokyo.co.jp/anime/yamishibai9/news/"
-    });
-    
-    stubSource({
         name: "歌剧少女!!",
         page: "https://kageki-anime.com/news/"
     });
     
     stubSource({
         name: "瓦尼塔斯的手记",
+        comment: "系列共用源：瓦尼塔斯的手记(前半)",
         page: "https://vanitas-anime.com/news/"
     });
     
@@ -202,9 +225,9 @@
     });
     
     stubSource({
-        name: "我立于百万生命之上 第2季",
-        page: "",
-        comment: "需要解决连续番剧的问题"
+        name: "我立于百万生命之上",
+        comment: "系列共用源：我立于百万生命之上 第2季",
+        page: ""
     });
     
     stubSource({
@@ -277,6 +300,57 @@
     });
     
     stubSource({
+        name: "我，小怼",
+        page: "https://tsushima-anime.com/news/"
+    });
+    
+    skipSource({
+        name: "暗黑家族 笑美小姐",
+        page: "https://smash-media.jp/channels/147",
+        reason: "无新闻网页"
+    });
+    
+    stubSource({
+        name: "暗芝居 第9期",
+        page: "https://www.tv-tokyo.co.jp/anime/yamishibai9/news/"
+    });
+
+    addSource({
+        name: "卡片战斗先导者 overDress",
+        season: "202104",
+        includedSeasons: [ "202104" ],
+        comment: "系列共用源：Mini卡片战斗先导者 Large",
+        guidPrefix: "cf_vanguard_overdress",
+        url: "https://anime.cf-vanguard.com/overdress/news/",
+        index: {
+            url: "div.nws-List article>a",
+            idTemplate: "{{url}}",
+            title: "div.nws-List article span.date",
+            date: "div.nws-List article p.title"
+        },
+        description: {
+            body: "div.body"
+        }
+    });
+    
+    skipSource({
+        name: "指尖传出的真挚热情2-恋人是消防员-",
+        page: "https://yubinetsu.cf-anime.com/",
+        reason: "R18不收录"
+    });
+    
+    stubSource({
+        name: "加油啊同期酱",
+        page: "https://doukichan-anime.com/news/list00010000.html"
+    });
+
+    stubSource({
+        name: "星期一的丰满2",
+        page: "https://tawawa2-anime.com/news/list00010000.html"
+    });
+    
+    /*
+    stubSource({
         name: "百万吨级武藏",
         page: "",
         comment: "？"
@@ -294,20 +368,10 @@
         comment: "系列共用源：Assault Lily Fruits"
     });
     
-    stubSource({
-        name: "我，小怼",
-        page: "https://tsushima-anime.com/news/"
-    });
-    
     skipSource({
         name: "暗黑家族 蕨小姐",
         page: "https://smash-media.jp/channels/147",
         reason: "无新闻网页"
     });
-    
-    skipSource({
-        name: "指尖传出的真挚热情2-恋人是消防员-",
-        page: "https://yubinetsu.cf-anime.com/",
-        reason: "R18不收录"
-    });
+    */
 }

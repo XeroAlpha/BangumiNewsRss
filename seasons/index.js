@@ -26,20 +26,20 @@ module.exports = function(host) {
     host.log("Loading BangumiList");
     require("./bangumiList")(host);
 
-    host.defineShortcut({
-        id: "current",
-        name: "本季",
-        rssLink: "https://rss.projectxero.top/bangumi/current.xml",
-        viewerLink: "https://rss.projectxero.top/view/?src=bangumi%2Fcurrent.xml",
-        season: "202107"
-    });
+    // host.defineShortcut({
+    //     id: "current",
+    //     name: "本季",
+    //     rssLink: "https://rss.projectxero.top/bangumi/current.xml",
+    //     viewerLink: "https://rss.projectxero.top/view/?src=bangumi%2Fcurrent.xml",
+    //     season: "202110"
+    // });
 
     // host.defineShortcut({
     //     id: "next",
     //     name: "下季",
     //     rssLink: "https://rss.projectxero.top/bangumi/next.xml",
     //     viewerLink: "https://rss.projectxero.top/view/?src=bangumi%2Fnext.xml",
-    //     season: "202107"
+    //     season: "202201"
     // });
 
     host.defineShortcut({
@@ -47,6 +47,6 @@ module.exports = function(host) {
         name: "上季",
         rssLink: "https://rss.projectxero.top/bangumi/prev.xml",
         viewerLink: "https://rss.projectxero.top/view/?src=bangumi%2Fprev.xml",
-        season: "202104"
+        season: "202107"
     });
 }
