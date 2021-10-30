@@ -143,9 +143,19 @@
         }
     });
     
-    stubSource({
+    addSource({
         name: "白沙的水族馆",
-        page: "https://aquatope-anime.com/news/"
+        url: "https://aquatope-anime.com/news/",
+        guidPrefix: "aquatope",
+        index: {
+            url: "div.news--main__lineup article.md-archive__news>a.linkwrap",
+            idTemplate: "{{url}}",
+            title: "div.news--main__lineup article.md-archive__news>div.txt>h3.txt--ttl",
+            date: "div.news--main__lineup article.md-archive__news>div.txt>time.txt--date"
+        },
+        description: {
+            body: "main.md-article__cont--main"
+        }
     });
     
     stubSource({
