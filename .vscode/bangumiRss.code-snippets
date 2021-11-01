@@ -33,7 +33,7 @@
             "\t\ttitle: \"$5\",",
             "\t\tdate: \"$6\",",
             "\t\tbody: \"$7\"",
-            "\t}",
+            "\t}, testAndReport",
             "});"
         ]
     },
@@ -55,7 +55,7 @@
             "\t},",
             "\tdescription: {",
             "\t\tbody: \"$7\"",
-            "\t}",
+            "\t}, testAndReport",
             "});"
         ]
     },
@@ -77,7 +77,7 @@
             "\t},",
             "\tgetExtractor: function(url) {",
             "\t\t$0",
-            "\t}",
+            "\t}, testAndReport",
             "});"
         ]
     },
@@ -113,7 +113,7 @@
             "\ttitle: \"$2\",",
             "\tdate: \"$3\",",
             "\tbody: \"$4\"",
-            "}$0"
+            "}, testAndReport$0"
         ]
     },
     "转换为分离式新闻来源": {
@@ -129,7 +129,7 @@
             "},",
             "description: {",
             "\tbody: \"$4\"",
-            "}$0"
+            "}, testAndReport$0"
         ]
     },
     "转换为带正文解析器分离式新闻来源": {
@@ -145,7 +145,7 @@
             "},",
             "getExtractor: function(url) {",
             "\t$0",
-            "}"
+            "}, testAndReport"
         ]
     },
 }

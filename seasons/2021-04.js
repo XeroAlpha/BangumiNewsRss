@@ -856,8 +856,8 @@ module.exports = function(host) {
         index: {
             url: "div.nws-List article>a",
             idTemplate: "{{url}}",
-            title: "div.nws-List article span.date",
-            date: "div.nws-List article p.title"
+            title: "div.nws-List article p.title",
+            date: "div.nws-List article span.date"
         },
         description: {
             body: "div.body"
