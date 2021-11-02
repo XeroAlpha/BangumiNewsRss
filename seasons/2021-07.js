@@ -158,9 +158,19 @@
         }
     });
     
-    stubSource({
+    addSource({
         name: "漂流少年",
-        page: "https://anime.shochiku.co.jp/sonny-boy/news.html"
+        url: "https://anime.shochiku.co.jp/sonny-boy/news.html",
+        guidPrefix: "sonny_boy",
+        index: {
+            id: "div.news-area>div:not(.news-contents):not(.news-logo):not(.news-logo)",
+            title: "div.news-area>div.news-contents>div.news-title",
+            date: [
+                "div.news-area>div.news-contents>div.news-date",
+                "{{ date | regex_replace: '(\\d+)年(\\d+)月(\\d+)日', '\\1.\\2.\\3' }}"
+            ],
+            body: "div.news-area>div.news-contents>div.news-tex"
+        }
     });
     
     stubSource({
