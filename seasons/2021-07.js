@@ -173,9 +173,16 @@
         }
     });
     
-    stubSource({
+    addSource({
         name: "盖塔机器人 ARC",
-        page: "https://getterrobot-arc.com/news/"
+        url: "https://getterrobot-arc.com/news/",
+        guidPrefix: "getterrobot_arc",
+        index: {
+            id: "div.article>p.kiji-box-margin",
+            title: "div.article>section.kiji-box>h2",
+            date: "div.article>section.kiji-box>p.kiji-date",
+            body: "div.article>section.kiji-box div.kiji-txt"
+        }
     });
     
     stubSource({
