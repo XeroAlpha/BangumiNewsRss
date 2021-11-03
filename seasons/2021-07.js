@@ -163,7 +163,7 @@
         url: "https://anime.shochiku.co.jp/sonny-boy/news.html",
         guidPrefix: "sonny_boy",
         index: {
-            id: "div.news-area>div:not(.news-contents):not(.news-logo):not(.news-logo)",
+            id: "div.news-area>div[id]",
             title: "div.news-area>div.news-contents>div.news-title",
             date: [
                 "div.news-area>div.news-contents>div.news-date",
