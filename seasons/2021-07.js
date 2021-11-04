@@ -225,9 +225,24 @@
         }
     });
     
-    stubSource({
+    addSource({
         name: "死神少爷与黑女仆",
-        page: "https://bocchan-anime.com/news/" // getExtractor
+        url: "https://bocchan-anime.com/news/",
+        guidPrefix: "bocchan",
+        index: {
+            url: [
+                "div#list_01>table tr div.title a",
+                "{{ url | to_uri: 'https://bocchan-anime.com/news/' }}"
+            ],
+            idTemplate: "{{url}}",
+            title: "div#list_01>table tr div.title a",
+            date: "div#list_01>table tr td.day"
+        },
+        getExtractor: function(url) {
+            if (url.startsWith("https://bocchan-anime.com/news/")) {
+                return { bodySelector: "div#news_block>div:first-of-type" };
+            }
+        }
     });
     
     stubSource({
