@@ -185,9 +185,19 @@
         }
     });
     
-    stubSource({
+    addSource({
         name: "范马刃牙",
-        page: "https://baki-anime.jp/hb/news"
+        url: "https://baki-anime.jp/hb/news",
+        guidPrefix: "bakihanma",
+        index: {
+            url: "div.arch-news-list>ul>li>a",
+            idTemplate: "{{url}}",
+            title: "div.arch-news-list>ul>li>a>p.arch-news-ttl",
+            date: "div.arch-news-list>ul>li>a>p.arch-news-date"
+        },
+        description: {
+            body: "div.sgl-news-txt"
+        }
     });
     
     stubSource({
