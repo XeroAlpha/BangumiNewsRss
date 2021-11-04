@@ -200,9 +200,29 @@
         }
     });
     
-    stubSource({
+    addSource({
         name: "魔法科高中的优等生",
-        page: "https://mahouka-yuutousei.jp/news/"
+        url: "https://mahouka-yuutousei.jp/news/",
+        guidPrefix: "mahouka_yuutousei",
+        index: {
+            url: [
+                "ul.p-news__list li.p-news__list-item a.p-news_data",
+                "https://mahouka-yuutousei.jp{{url}}"
+            ],
+            idTemplate: "{{url}}",
+            title: "ul.p-news__list li.p-news__list-item div.p-news_data__title",
+            date: [
+                {
+                    year: "ul.p-news__list li.p-news__list-item div.p-news_data__date-year",
+                    month: "ul.p-news__list li.p-news__list-item div.p-news_data__date-month",
+                    day: "ul.p-news__list li.p-news__list-item div.p-news_data__date-day"
+                },
+                "{{year}}.{{month}}.{{day}}"
+            ]
+        },
+        description: {
+            body: "div.p-news_single__text"
+        }
     });
     
     stubSource({
