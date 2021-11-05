@@ -245,9 +245,16 @@
         }
     });
     
-    stubSource({
+    addSource({
         name: "阴晴不定大哥哥",
-        page: "http://uramichi-anime.com/news/"
+        url: "http://uramichi-anime.com/news/",
+        guidPrefix: "uramichi",
+        index: {
+            id: "div#news>article",
+            title: "div#news>article>div.title>h3",
+            date: "div#news>article>div.title>time",
+            body: "div#news>article>div.detail"
+        }
     });
     
     stubSource({
