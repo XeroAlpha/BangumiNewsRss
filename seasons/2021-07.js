@@ -257,9 +257,22 @@
         }
     });
     
-    stubSource({
+    addSource({
         name: "女友成双",
-        page: "https://kanokano-anime.com/news/" // getExtractor
+        url: "https://kanokano-anime.com/news/",
+        guidPrefix: "kanokano",
+        index: {
+            url: [
+                "div.news-lineup article.news-lineup__block>a",
+                "https://kanokano-anime.com{{url}}"
+            ],
+            idTemplate: "{{url}}",
+            title: "div.news-lineup article.news-lineup__block>dl>dd>h2",
+            date: "div.news-lineup article.news-lineup__block>dl>dt"
+        },
+        description: {
+            body: "div.news-detail-body"
+        }
     });
     
     stubSource({
