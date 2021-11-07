@@ -275,9 +275,24 @@
         }
     });
     
-    stubSource({
+    addSource({
         name: "女神宿舍的管理员",
-        page: "https://megamiryou.com/news/"
+        url: "https://megamiryou.com/news/",
+        guidPrefix: "megamiryou",
+        index: {
+            url: [
+                "div#list_01>table tr div.title a",
+                "{{ url | to_uri: 'https://megamiryou.com/news/' }}"
+            ],
+            idTemplate: "{{url}}",
+            title: "div#list_01>table tr div.title a",
+            date: "div#list_01>table tr td.day"
+        },
+        getExtractor: function(url) {
+            if (url.startsWith("https://megamiryou.com/news/")) {
+                return { bodySelector: "div#news_block>div:first-of-type" };
+            }
+        }
     });
     
     stubSource({
